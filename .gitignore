@@ -1,0 +1,35 @@
+# Ignore system folder
+/application/cache/*
+/application/logs/*
+/system/database/*
+/system/cms/*
+/system/calendar/*
+/system/language/*
+/system/scaffolding/*
+/system/theme/*
+/system/cms/*
+/system/pyrocms/*
+/system/cms/*
+/system/cms/*
+
+# Ignore user-specific files
+# /application/config/database.php
+# /application/config/config.php
+
+# Ignore IDE or editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.komodotools/
+nbproject/
+Thumbs.db
+.DS_Store
+
+# Ignore composer dependencies
+/vendor/
+
+# Ignore logs and uploads
+/log/
+/uploads/
