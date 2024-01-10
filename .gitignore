@@ -1,16 +1,16 @@
 # Ignore system folder
 /application/cache/*
 /application/logs/*
-/system/database/*
-/system/cms/*
-/system/calendar/*
-/system/language/*
-/system/scaffolding/*
-/system/theme/*
-/system/cms/*
-/system/pyrocms/*
-/system/cms/*
-/system/cms/*
+# /system/database/*
+# /system/cms/*
+# /system/calendar/*
+# /system/language/*
+# /system/scaffolding/*
+# /system/theme/*
+# /system/cms/*
+# /system/pyrocms/*
+# /system/cms/*
+# /system/cms/*
 
 # Ignore user-specific files
 # /application/config/database.php
