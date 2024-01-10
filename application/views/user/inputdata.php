@@ -51,7 +51,7 @@
                                         <label for=\"$labelName\" $hideLabel class=\"col-form-label\">{$pertanyaan[$labelName]}</label>
                                     </div>
                                     <div class=\"col-md-8\">
-                                        <input type=\"text\" name=\"$i\" value=\"\" class=\"form-control\" $disable>
+                                        <input type=\"text\" name=\"$i\" value=\"\" class=\"form-control\" $disable autocomplete=\"off\">
                                     </div>
                                 </div>";
                             }

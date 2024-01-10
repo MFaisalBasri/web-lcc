@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306:3306
--- Waktu pembuatan: 09 Jan 2024 pada 16.31
+-- Waktu pembuatan: 10 Jan 2024 pada 03.02
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `hasil_skenario` (
   `id_user` int(11) NOT NULL,
+  `kode_skenario` int(11) NOT NULL,
   `skenario` varchar(30) NOT NULL,
   `lahan` int(10) DEFAULT NULL,
   `alsintan` int(10) DEFAULT NULL,
@@ -51,6 +52,15 @@ CREATE TABLE `hasil_skenario` (
   `pengemasan` int(10) NOT NULL,
   `total_biaya` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `hasil_skenario`
+--
+
+INSERT INTO `hasil_skenario` (`id_user`, `kode_skenario`, `skenario`, `lahan`, `alsintan`, `pengadaan_bibit`, `persiapan_lahan`, `penanaman`, `penyulaman`, `pemupukan`, `pengendalian_opt`, `pemangkasan`, `pemanenan`, `lahan_dan_bangunan`, `pembersihan_buah`, `pulping`, `fermentasi`, `pembersih_kopi_hs`, `pengeringan`, `hulling`, `sortasi_greenbean`, `pengemasan`, `total_biaya`) VALUES
+(20, 4, 'Intensif, Manual, Wet Process', 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(20, 5, 'Organik, Manual, Dry Process', 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(23, 6, 'Intensif, Manual, Semi-dry Pro', 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -495,7 +505,8 @@ INSERT INTO `user_sub_sub_menu` (`id`, `userId`, `group_menu`, `title`, `url`, `
 -- Indeks untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`kode_skenario`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `inventory`
@@ -600,7 +611,7 @@ ALTER TABLE `user_sub_sub_menu`
 -- AUTO_INCREMENT untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `lca_emisi`
@@ -671,6 +682,12 @@ ALTER TABLE `user_sub_sub_menu`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `hasil_skenario`
+--
+ALTER TABLE `hasil_skenario`
+  ADD CONSTRAINT `hasil_skenario_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `inventory`
