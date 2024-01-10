@@ -11,7 +11,8 @@ class Hasil_skenario extends CI_model
     {
         if ($this->input->post('tambah')) {
             $data = [
-                // "id_user" => $this->input->post('0', true),
+                "id_user" => $this->input->post('id', true),
+                "kode_skenario" => "",
                 "skenario" => $this->input->post('0', true),
                 "lahan" => $this->input->post('1', true),
                 "alsintan" => $this->input->post('2', true),
@@ -43,9 +44,11 @@ class Hasil_skenario extends CI_model
         $this->db->delete('mahasiswa', ['id' => $id]);
     }
 
-    public function getMahasiswaById($id)
+    public function getHasilById($id)
     {
-        return $this->db->get_where('mahasiswa', ['id' => $id])->row_array();
+        $this->db->where('id_user', $id);
+        $query = $this->db->get('hasil_skenario');
+        return $query->result_array();
     }
 
     public function ubahDataMahasiswa()

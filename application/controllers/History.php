@@ -12,11 +12,10 @@ class History extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = 'Skenario Usaha';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['history'] = $this->Hasil_skenario->getAllHasilSkenario();
-
+        $data['title'] = 'Data History';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id = $data['user']['id'];
+        $data['history'] = $this->Hasil_skenario->getHasilById($id);
         $this->load->view('user/headeruser', $data);
         $this->load->view('user/sidebaruser');
         $this->load->view('user/history', $data);

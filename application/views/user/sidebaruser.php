@@ -12,7 +12,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item text-primary">
-          <a href="<?= base_url('dashboard') ?>" class="nav-link">
+          <a href="<?= base_url('dashboard') ?>" class="nav-link <?= $title == 'Dashboard' ? 'active' : ''; ?>">
             <i class="nav-icon fas fa-edit"></i>
             <p>
               Dashboard
@@ -20,7 +20,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('myprofile') ?>" class="nav-link">
+          <a href="<?= base_url('myprofile') ?>" class="nav-link <?= $title == 'Profile' ? 'active' : ''; ?>">
             <i class="nav-icon fas fa-fw fa-user"></i>
             <p>
               Profile
@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('skenario') ?>" class="nav-link">
+          <a href="<?= base_url('skenario') ?>" class="nav-link <?= $title == 'Skenario Usaha' ? 'active' : ''; ?>">
             <i class="nav-icon fas fa-circle"></i>
             <p>
               Skenario Usaha
@@ -45,13 +45,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= base_url('inputdata') ?>" class="nav-link">
+              <a href="<?= base_url('inputdata') ?>" class="nav-link <?= $title == 'Input Data' ? 'active' : ''; ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Input Data</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('history') ?>" class="nav-link">
+              <a href="<?= base_url('history') ?>" class="nav-link <?= $title == 'Data History' ? 'active' : ''; ?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Data History</p>
               </a>
@@ -59,7 +59,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('interpretasi') ?>" class="nav-link">
+          <a href="<?= base_url('interpretasi') ?>" class="nav-link <?= $title == 'Interpretasi' ? 'active' : ''; ?>">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               Interpretasi

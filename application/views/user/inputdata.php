@@ -38,6 +38,7 @@
                     <?php if (!empty($pertanyaan['skenario'])) {  ?>
                         <h5>Data untuk Skenario: <?= $pertanyaan['skenario']; ?> </h5>
                         <form action="" method="post">
+                            <input type="text" name="id" value="<?= $user['id']; ?>" hidden><br>
                             <input type="text" name="0" value="<?= $pertanyaan['skenario']; ?>" hidden><br>
 
                             <?php for ($i = 1; $i <= 19; $i++) {
