@@ -8,8 +8,8 @@
                         <rect x="590" y="0" width="200" height="460" fill="#f0f0f0" stroke="rgb(0, 0, 0)" pointer-events="all" />
                         <rect x="383" y="0" width="200" height="460" fill="#f0f0f0" stroke="rgb(0, 0, 0)" pointer-events="all" />
                         <rect x="0" y="0" width="373" height="460" fill="#f0f0f0" stroke="rgb(0, 0, 0)" pointer-events="all" />
-                        <rect x="15" y="174" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" class="svg-kotak" data-keterangan="Ini merupakan deskripsi....." />
-                        <g transform="translate(-0.5 -0.5)">
+                        <rect x="15" y="174" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Proses budidaya dilakukan secara masif (pengguanaan bahan kimia dan alsintan jika dibutuhkan) dengan tujuan memaksimalkan produksi.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 204px; margin-left: 16px;">
@@ -22,8 +22,8 @@
                                 </foreignObject><text x="75" y="208" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Intensif</text>
                             </switch>
                         </g>
-                        <rect x="15" y="284" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" class="svg-kotak" data-keterangan="Ini merupakan deskripsi....." />
-                        <g transform="translate(-0.5 -0.5)">
+                        <rect x="15" y="284" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Proses budidaya tanpa menggunakan bahan kimiawi dengan tujuan meminimalisasi residu kimia produk.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 314px; margin-left: 16px;">
@@ -36,8 +36,8 @@
                                 </foreignObject><text x="75" y="318" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Organik</text>
                             </switch>
                         </g>
-                        <rect x="229" y="224" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" class="svg-kotak" data-keterangan="Ini merupakan deskripsi....." />
-                        <g transform="translate(-0.5 -0.5)">
+                        <rect x="229" y="224" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Pengendalian non-alsintan: penyiangan dan pemanenan manual dengan golok, parang, atau sabit.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 254px; margin-left: 230px;">
@@ -50,8 +50,8 @@
                                 </foreignObject><text x="289" y="258" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">Manual</text>
                             </switch>
                         </g>
-                        <rect x="229" y="104" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" class="svg-kotak" data-keterangan="Ini merupakan deskripsi....." />
-                        <g transform="translate(-0.5 -0.5)">
+                        <rect x="229" y="104" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Penggunaan bahan kimia seperti pupuk urea, KCL, herbisida dan insetiksida.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 134px; margin-left: 230px;">
@@ -65,7 +65,7 @@
                             </switch>
                         </g>
                         <rect x="229" y="344" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
-                        <g transform="translate(-0.5 -0.5)">
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Penggunaan alsintan: mesin pemotong rumput dan sprayer.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 374px; margin-left: 230px;">
@@ -79,7 +79,7 @@
                             </switch>
                         </g>
                         <rect x="425" y="344" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
-                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Ini merupakan deskripsi.....">
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Setelah panen terdapat proses pengeringan dan pemisahan kulit ari dengan biji kopi.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 374px; margin-left: 426px;">
@@ -93,7 +93,7 @@
                             </switch>
                         </g>
                         <rect x="425" y="224" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
-                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Ini merupakan deskripsi.....">
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Setelah panen terdapat proses pengupasan kulit buah kopi basah dengan biji kopi (pulping), pengeringan, dan pemisahan kulit ari dengan kopi.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 254px; margin-left: 426px;">
@@ -107,7 +107,7 @@
                             </switch>
                         </g>
                         <rect x="425" y="104" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
-                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Ini merupakan deskripsi.....">
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Setelah panen terdapat proses pengupasan kulit buah kopi basah dengan biji kopi (pulping), fermentasi, pengeringan, dan pemisahan kulit ari dengan biji kopi.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 134px; margin-left: 426px;">
@@ -121,7 +121,7 @@
                             </switch>
                         </g>
                         <rect x="625" y="224" width="120" height="60" rx="9" ry="9" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" />
-                        <g transform="translate(-0.5 -0.5)">
+                        <g transform="translate(-0.5 -0.5)" class="svg-kotak" data-keterangan="Output akhir berupa biji kopi yang dikemas.">
                             <switch>
                                 <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
                                     <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 254px; margin-left: 626px;">
