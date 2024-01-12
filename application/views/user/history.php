@@ -58,6 +58,7 @@
                                     <td>Rp.<?= $h['pengemasan']; ?></td>
                                     <td>Rp.<?= $h['total_biaya']; ?></td>
                                     <td>
+                                    <td>
                                         <span class="badge bg-warning">Edit</span>
                                         <span class="badge bg-danger">Clear</span>
                                     </td>

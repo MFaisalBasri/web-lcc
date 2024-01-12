@@ -15,6 +15,7 @@ class skenario extends CI_Controller
         $data['title'] = 'Skenario Usaha';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['skenario'] = $this->db->get('bagan_skenario')->result_array();
 
         $this->load->view('user/headeruser', $data);
         $this->load->view('user/sidebaruser');

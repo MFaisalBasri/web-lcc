@@ -16,6 +16,7 @@ class History extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $id = $data['user']['id'];
         $data['history'] = $this->Hasil_skenario->getHasilById($id);
+        $data['total'] = $this->Hasil_skenario->getTotal();
         $this->load->view('user/headeruser', $data);
         $this->load->view('user/sidebaruser');
         $this->load->view('user/history', $data);

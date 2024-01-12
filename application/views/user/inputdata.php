@@ -24,7 +24,7 @@
                         <select name="skenarioDropdown" id="skenarioDropdown" onchange="document.getElementById('mainForm').submit();">
                             <option value="" selected disabled>Pilih Skenario</option>
                             <?php foreach ($skenario as $s) : ?>
-                                <option value='<?= $s['skenario']; ?>'><?= $s['skenario']; ?></option>
+                                <option value='<?= $s['deskripsi']; ?>'><?= $s['deskripsi']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </form>
@@ -35,12 +35,13 @@
                 <div class="col-md-3">
                 </div>
                 <div class="col-md-6">
-                    <?php if (!empty($pertanyaan['skenario'])) {  ?>
-                        <h5>Data untuk Skenario: <?= $pertanyaan['skenario']; ?> </h5>
+                    <?php if (!empty($pertanyaan['deskripsi'])) {  ?>
+                        <h5>Data untuk Skenario: <?= $pertanyaan['deskripsi']; ?> </h5>
                         <form action="" method="post">
                             <input type="text" name="id" value="<?= $user['id']; ?>" hidden><br>
-                            <input type="text" name="0" value="<?= $pertanyaan['skenario']; ?>" hidden><br>
-
+                            <input type="text" name="jenis_skenario" value="<?= $pertanyaan['skenario']; ?>"><br>
+                            <input type="text" name="0" value="<?= $pertanyaan['deskripsi']; ?>" hidden><br>
+                           <?php $totalValue = 0; ?> 
                             <?php for ($i = 1; $i <= 19; $i++) {
                                 $labelName = "input" . $i;
                                 $disable = ($pertanyaan[$labelName] == "x") ? 'hidden' : '';
@@ -55,6 +56,7 @@
                                     </div>
                                 </div>";
                             }
+                            echo "<input type=\"text\" name=\"20\" value=\"$totalValue\" hidden>";
                             echo "<input type=\"submit\" name=\"tambah\" value=\"Calculate\">";
                             ?>
                         </form>

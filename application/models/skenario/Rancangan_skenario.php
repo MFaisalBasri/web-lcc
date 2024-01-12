@@ -27,7 +27,7 @@ class Rancangan_skenario extends CI_model
 
     public function getSkenarioById($id)
     {
-        return $this->db->get_where('rancangan_skenario', ['skenario' => $id])->row_array();
+        return $this->db->get_where('rancangan_skenario', ['deskripsi' => $id])->row_array();
     }
 
     public function ubahDataMahasiswa()

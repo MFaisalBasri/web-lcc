@@ -1,4 +1,4 @@
-    <div class="content-wrapper" style="margin-left: 400px;">
+    <div class="content-wrapper" style="margin-left: 400px; width: 50%;">
         <section class="content">
             <div class="card-body">
 
@@ -258,8 +258,14 @@
                     </switch>
                 </svg>
             </div>
-            <div id="keterangan" class="keterangan" style="margin-left: 500px; margin-top: -60px; height:100px; border: 2px solid">Ini adalah keterangan</div>
+            <div id="keterangan" class="keterangan" style="margin-left: 500px; margin-top: -60px; height:100px; width:30%; border: 2px solid">Ini adalah keterangan</div>
         </section>
+
+        <div>
+        <?php foreach($skenario as $sken) : ?>
+            <li><?= $sken['nama']; ?> : <?= $sken['deskripsi']; ?></li>
+        <?php endforeach; ?>
+    </div>
     </div>
 
     <script>

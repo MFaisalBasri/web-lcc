@@ -10,9 +10,29 @@ class Hasil_skenario extends CI_model
     public function tambahDataHasil()
     {
         if ($this->input->post('tambah')) {
+            $total_biaya = intval($this->input->post('1', true)) +
+               intval($this->input->post('2', true)) +
+               intval($this->input->post('3', true)) +
+               intval($this->input->post('4', true)) +
+               intval($this->input->post('5', true)) +
+               intval($this->input->post('6', true)) +
+               intval($this->input->post('7', true)) +
+               intval($this->input->post('8', true)) +
+               intval($this->input->post('9', true)) +
+               intval($this->input->post('10', true)) +
+               intval($this->input->post('11', true)) +
+               intval($this->input->post('12', true)) +
+               intval($this->input->post('13', true)) +
+               intval($this->input->post('14', true)) +
+               intval($this->input->post('15', true)) +
+               intval($this->input->post('16', true)) +
+               intval($this->input->post('17', true)) +
+               intval($this->input->post('18', true)) +
+               intval($this->input->post('19', true));
             $data = [
                 "id_user" => $this->input->post('id', true),
                 "kode_skenario" => "",
+                "jenis_skenario" => $this->input->post('jenis_skenario', true),
                 "skenario" => $this->input->post('0', true),
                 "lahan" => $this->input->post('1', true),
                 "alsintan" => $this->input->post('2', true),
@@ -33,9 +53,16 @@ class Hasil_skenario extends CI_model
                 "hulling" => $this->input->post('17', true),
                 "sortasi_greenbean" => $this->input->post('18', true),
                 "pengemasan" => $this->input->post('19', true),
+                "total_biaya" => $total_biaya
             ];
             $this->db->insert('hasil_skenario', $data);
         }
+    }
+
+    public function getTotal() {
+        $this->db->select('(alsintan + lahan) AS total', FALSE);
+        $query = $this->db->get('hasil_skenario');
+        return $query->result();
     }
 
     public function hapusDataMahasiswa($id)
