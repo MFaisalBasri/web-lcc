@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-lg-4 col-6">
 
-          <div class="small-box bg-success">
+          <div class="small-box bg-info">
             <div class="inner">
               <h3><?php echo $user['lokasi']; ?></h3>
               <p>Lokasi</p>
@@ -27,10 +27,24 @@
 
         <div class="col-lg-4 col-6">
 
-          <div class="small-box bg-info">
+          <div class="small-box bg-success">
             <div class="inner">
               <h3>Nama Kopi</h3>
               <p>Jenis Kopi</p>
+            </div>
+            <div class="icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+          </div>
+        </div>
+
+         <div class="col-lg-4 col-6">
+
+          <div class="small-box bg-dark">
+            <div class="inner">
+              <h3>5</h3>
+              <p>Jumlah Data</p>
             </div>
             <div class="icon">
               <i class="fa-solid fa-user"></i>
@@ -52,46 +66,45 @@
             </div>
 
             <div class="card-body">
-              <h1 class="card-title"><i><b>Life Cycle Assessment Software </i></b> </h1>
+              <h1 class="card-title"><i><b>Life Cycle Cost Software </i></b> </h1>
               <br>
               <hr>
 
               <p class="card-text">
-                <i>Life Cycle Assessment</i> (LCA) merupakan metode penilaian daur hidup yang dilakukan untuk mengetahui dampak emisi
-                yang dihasilkan dalam proses produksi. Analisis LCA biasanya dilakukan untuk membantu strategi bisnis sebuah
-                perusahaan yang berimplikasi pada pembuatan keputusan dan meningkatkan kualitas produk dan proses sesuai
-                dengan arahan <b>Peraturan Menteri Lingkungan Hidup No.1 Tahun 2021</b> terkait Program Penilaian Perangkat Kinerja
-                Perusahaan dalam Pengelolaan Lingkungan Hidup (PROPER). Tahapan LCA terbagi menjadi 4 yaitu: 1.)<i> Goal & Scope Definition
-                  2.) Life Cycle Inventory 3.) Life Cycle Impact Assessment</i> dan 4.) Interpretasi
+                <i>Life Cycle Cost</i> (LCC) adalah metode perhitungan total biaya selama siklus hidup produksi. LCC merupakan penilaian ekonomi cradle-to-gate, yaitu siklus produksi yang dimulai dari bahan mentah hingga produk jadi. Dalam perancangan usaha kopi, analisis LCC terdiri atas biaya fase budidaya dan fase pascapanen. Analisis LCC digunakan untuk menghitung, mengevaluasi dan membandingkan biaya total usaha produksi kopi sehingga dapat membantu mengambil pertimbangan/keputusan bagi pengguna.
               </p>
               <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 
               <hr>
+              <div class="row">
 
-              <div class="card-deck">
-                <div class="col d-flex justify-content-center">
-                  <div class="card" style="width: 18rem;" class="mx-auto">
-                    <!-- <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-hitam.jpg" alt="Card image cap"> -->
-                    <div class="card-body">
-                      <p class="card-text">Gambar 1. <b>Proses Penyemaian</b></p>
+                  <div class="col col-lg-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width:100%" class="mx-auto">
+                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-1.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">Gambar 1. <b>Proses Penyemaian</b></p>
+                      </div>
                     </div>
                   </div>
 
-
-                  <div class="card" style="width: 18rem;" class="mx-auto">
-                    <!-- <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi2.jpg" alt="Card image cap"> -->
-                    <div class="card-body">
-                      <p class="card-text">Gambar 2. <b>Proses Budidaya kopi</b></p>
+                  <div class="col col-lg-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width:100%" class="mx-auto">
+                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-2.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">Gambar 2. <b>Proses Budidaya kopi</b></p>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="card" style="width: 18rem;" class="mx-auto">
-                    <!-- <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi3.jpg" alt="Card image cap"> -->
-                    <div class="card-body">
-                      <p class="card-text">Gambar 3. <b>Proses Pemanenan kopi</b> </p>
+                  <div class="col col-lg-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width:100%" class="mx-auto">
+                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-3.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">Gambar 3. <b>Proses Pemanenan kopi</b> </p>
+                      </div>
                     </div>
-                  </div>
-
+                  </div>  
+              
                 </div>
               </div>
 

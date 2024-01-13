@@ -1,13 +1,21 @@
-<div class="content-wrapper" style="margin-left: 300px;">
-  <div>
-    <canvas id="myChart"></canvas>
-    <?php
-    $labels = [];
-    foreach($hasil as $has) :
-        $labels[] = $has['jenis_skenario'];
-    ?>
-    <?php endforeach; ?>
-  </div>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="content-wrapper">
+                  <div>
+                    <canvas id="myChart"></canvas>
+                      <?php
+                      $labels = [];
+                      foreach($hasil as $has) :
+                          $labels[] = $has['jenis_skenario'];
+                      ?>
+                      <?php endforeach; ?>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>   
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

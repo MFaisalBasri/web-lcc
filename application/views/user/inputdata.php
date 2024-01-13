@@ -57,7 +57,7 @@
                                 </div>";
                             }
                             echo "<input type=\"text\" name=\"20\" value=\"$totalValue\" hidden>";
-                            echo "<input type=\"submit\" name=\"tambah\" value=\"Calculate\">";
+                            echo "<input type=\"submit\" name=\"tambah\" value=\"Calculate\" class=\"mt-3\">";
                             ?>
                         </form>
                     <?php } ?>
