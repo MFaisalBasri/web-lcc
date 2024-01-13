@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306:3306
--- Waktu pembuatan: 10 Jan 2024 pada 03.02
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 8.0.10
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 13 Jan 2024 pada 07.20
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,12 +24,46 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `bagan_skenario`
+--
+
+CREATE TABLE `bagan_skenario` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(20) NOT NULL,
+  `deskripsi` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `bagan_skenario`
+--
+
+INSERT INTO `bagan_skenario` (`id`, `nama`, `deskripsi`) VALUES
+(1, 'Skenario 1', 'Intensif - Kimiawi - Wet process - Kopi greenbean'),
+(2, 'Skenario 2', 'Intensif - Kimiawi - Semi-dry process - Kopi greenbean'),
+(3, 'Skenario 3', 'Intensif - Kimiawi - Dry process - Kopi greenbean'),
+(4, 'Skenario 4', 'Intensif - Manual- Wet process - Kopi greenbean'),
+(5, 'Skenario 5', 'Intensif - Manual - Semi-dry process - Kopi greenbean'),
+(6, 'Skenario 6', 'Intensif - Manual- Dry process - Kopi greenbean'),
+(7, 'Skenario 7', 'Intensif - Mekanis - Wet process - Kopi greenbean'),
+(15, 'Skenario 8', 'Intensif - Mekanis - Semi-dry process - kopi greenbean'),
+(16, 'Skenario 9', 'Intensif - Mekanis - Dry process - Kopi greenbean'),
+(17, 'Skenario 10', 'Organik - Manual - Wet process - Kopi greenbean'),
+(18, 'Skenario 11', 'Organik - Manual - Semi-dry process - Kopi greenbean'),
+(19, 'Skenario 12', 'Organik - Manual - Dry process - Kopi greenbean'),
+(20, 'Skenario 13', 'Organik - Mekanis - Wet process - Kopi greenbean'),
+(21, 'Skenario 14', 'Organik - Mekanis - Semi-dry process - Kopi greenbean'),
+(22, 'Skenario 14', 'Organik - Mekanis - Dry process - Kopi greenbean');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `hasil_skenario`
 --
 
 CREATE TABLE `hasil_skenario` (
   `id_user` int(11) NOT NULL,
   `kode_skenario` int(11) NOT NULL,
+  `jenis_skenario` varchar(20) NOT NULL,
   `skenario` varchar(30) NOT NULL,
   `lahan` int(10) DEFAULT NULL,
   `alsintan` int(10) DEFAULT NULL,
@@ -51,16 +85,18 @@ CREATE TABLE `hasil_skenario` (
   `sortasi_greenbean` int(10) NOT NULL,
   `pengemasan` int(10) NOT NULL,
   `total_biaya` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `hasil_skenario`
 --
 
-INSERT INTO `hasil_skenario` (`id_user`, `kode_skenario`, `skenario`, `lahan`, `alsintan`, `pengadaan_bibit`, `persiapan_lahan`, `penanaman`, `penyulaman`, `pemupukan`, `pengendalian_opt`, `pemangkasan`, `pemanenan`, `lahan_dan_bangunan`, `pembersihan_buah`, `pulping`, `fermentasi`, `pembersih_kopi_hs`, `pengeringan`, `hulling`, `sortasi_greenbean`, `pengemasan`, `total_biaya`) VALUES
-(20, 4, 'Intensif, Manual, Wet Process', 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(20, 5, 'Organik, Manual, Dry Process', 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(23, 6, 'Intensif, Manual, Semi-dry Pro', 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `hasil_skenario` (`id_user`, `kode_skenario`, `jenis_skenario`, `skenario`, `lahan`, `alsintan`, `pengadaan_bibit`, `persiapan_lahan`, `penanaman`, `penyulaman`, `pemupukan`, `pengendalian_opt`, `pemangkasan`, `pemanenan`, `lahan_dan_bangunan`, `pembersihan_buah`, `pulping`, `fermentasi`, `pembersih_kopi_hs`, `pengeringan`, `hulling`, `sortasi_greenbean`, `pengemasan`, `total_biaya`) VALUES
+(23, 19, 'Skenario 4', 'Intensif, Manual, Wet Process', 1500, 0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3000, 6500),
+(23, 20, 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Pr', 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6),
+(23, 21, 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 0, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12),
+(23, 22, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 5, 5, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14),
+(23, 23, 'Skenario 4', 'Intensif, Manual, Wet Process', 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -79,26 +115,26 @@ CREATE TABLE `inventory` (
   `satuan` varchar(255) NOT NULL,
   `tipedata` varchar(10) NOT NULL,
   `waktu` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `inventory`
 --
 
 INSERT INTO `inventory` (`inventoryId`, `userId`, `proses`, `jenis_material`, `tahun`, `nama_material`, `jumlah_material`, `satuan`, `tipedata`, `waktu`) VALUES
-('8zyKkv06c9', 18, 'Pemeliharaan', 'Energi', '2020', 'Ammonia (NH3) (kg)', '80.00000', '', 'Primer', '2022-08-23 21:47:20'),
-('cmtqHMSwIJ', 18, 'Pemeliharaan', 'Energi', '2020', 'Listrik (kWh)', '100.00000', '', 'Primer', '2022-08-22 22:40:48'),
-('cwjnTdhXJ0', 18, 'Pemanenan', 'Air', '2020', 'Air (liter)', '25.00000', '', 'Primer', '2022-08-24 19:12:48'),
-('h3AGmrPcbF', 18, 'Pembibitan', 'Bahan Kimia', '2020', 'Nitrogen (N) (kg)', '15.00000', '', 'Primer', '2022-08-23 22:04:08'),
-('mNAFbjR1cK', 19, 'Pembibitan', 'Raw Material', '2020', 'Poultry manure (kg)', '30.00000', '', 'Primer', '2022-08-23 22:42:02'),
-('RrYwt1AsDl', 18, 'Pembibitan', 'Raw Material', '2020', 'Air (liter)', '10.00000', '', 'Primer', '2022-08-19 23:29:14'),
-('RYofDkrldp', 20, 'Pembibitan', 'Limbah', '2020', 'Air (liter)', '20.00000', '', 'Primer', '2024-01-06 12:07:26'),
-('sdlqNFUViT', 20, 'Pembibitan', 'Raw Material', '2020', 'Air (liter)', '20.00000', '', 'Primer', '2024-01-06 12:07:14'),
-('SGAslzkZr0', 18, 'Pembibitan', 'Support Material', '2020', 'Poultry manure (kg)', '10.00000', '', 'Primer', '2022-08-23 22:05:00'),
-('SZD8xmszrF', 18, 'Pemanenan', 'Raw Material', '2020', 'Potassium (K2O) (kg)', '10.00000', '', 'Primer', '2022-08-23 22:39:36'),
-('TfkZNpsv4B', 18, 'Pembibitan', 'Raw Material', '2020', 'Air (liter)', '15.00000', '', 'Primer', '2022-08-20 23:41:53'),
-('xaZnAbX9S1', 18, 'Pemanenan', 'Energi', '2020', 'Phosphorus (P2O5) (kg)', '5.00000', '', 'Sekunder', '2022-08-20 23:01:35'),
-('zyKWdhCH51', 18, 'Pemeliharaan', 'Raw Material', '2020', 'Air (liter)', '10.00000', '', 'Primer', '2022-08-20 23:49:02');
+('8zyKkv06c9', 18, 'Pemeliharaan', 'Energi', '2020', 'Ammonia (NH3) (kg)', 80.00000, '', 'Primer', '2022-08-23 21:47:20'),
+('cmtqHMSwIJ', 18, 'Pemeliharaan', 'Energi', '2020', 'Listrik (kWh)', 100.00000, '', 'Primer', '2022-08-22 22:40:48'),
+('cwjnTdhXJ0', 18, 'Pemanenan', 'Air', '2020', 'Air (liter)', 25.00000, '', 'Primer', '2022-08-24 19:12:48'),
+('h3AGmrPcbF', 18, 'Pembibitan', 'Bahan Kimia', '2020', 'Nitrogen (N) (kg)', 15.00000, '', 'Primer', '2022-08-23 22:04:08'),
+('mNAFbjR1cK', 19, 'Pembibitan', 'Raw Material', '2020', 'Poultry manure (kg)', 30.00000, '', 'Primer', '2022-08-23 22:42:02'),
+('RrYwt1AsDl', 18, 'Pembibitan', 'Raw Material', '2020', 'Air (liter)', 10.00000, '', 'Primer', '2022-08-19 23:29:14'),
+('RYofDkrldp', 20, 'Pembibitan', 'Limbah', '2020', 'Air (liter)', 20.00000, '', 'Primer', '2024-01-06 12:07:26'),
+('sdlqNFUViT', 20, 'Pembibitan', 'Raw Material', '2020', 'Air (liter)', 20.00000, '', 'Primer', '2024-01-06 12:07:14'),
+('SGAslzkZr0', 18, 'Pembibitan', 'Support Material', '2020', 'Poultry manure (kg)', 10.00000, '', 'Primer', '2022-08-23 22:05:00'),
+('SZD8xmszrF', 18, 'Pemanenan', 'Raw Material', '2020', 'Potassium (K2O) (kg)', 10.00000, '', 'Primer', '2022-08-23 22:39:36'),
+('TfkZNpsv4B', 18, 'Pembibitan', 'Raw Material', '2020', 'Air (liter)', 15.00000, '', 'Primer', '2022-08-20 23:41:53'),
+('xaZnAbX9S1', 18, 'Pemanenan', 'Energi', '2020', 'Phosphorus (P2O5) (kg)', 5.00000, '', 'Sekunder', '2022-08-20 23:01:35'),
+('zyKWdhCH51', 18, 'Pemeliharaan', 'Raw Material', '2020', 'Air (liter)', 10.00000, '', 'Primer', '2022-08-20 23:49:02');
 
 -- --------------------------------------------------------
 
@@ -113,14 +149,14 @@ CREATE TABLE `kalkulator` (
   `tanggal` date NOT NULL,
   `nutrisi` decimal(10,3) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `kalkulator`
 --
 
 INSERT INTO `kalkulator` (`id`, `air`, `ppm`, `tanggal`, `nutrisi`, `user_id`) VALUES
-('duTXHYOil0', 215, 1000, '2022-08-29', '215.000', 18);
+('duTXHYOil0', 215, 1000, '2022-08-29', 215.000, 18);
 
 -- --------------------------------------------------------
 
@@ -137,26 +173,26 @@ CREATE TABLE `lca_emisi` (
   `ODP` decimal(65,15) DEFAULT NULL,
   `HCT` decimal(65,15) DEFAULT NULL,
   `sumberdata` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `lca_emisi`
 --
 
 INSERT INTO `lca_emisi` (`id_emisi`, `nama_material`, `GWP`, `AP`, `EP`, `ODP`, `HCT`, `sumberdata`) VALUES
-(1, 'Air (liter) ', '0.000000000794188', '0.000000000000047', '0.000000000000157', '0.000000000000063', '0.000000008533510', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(2, 'Nitrogen (N) (kg)', '0.000058311508916', '0.000000004181113', '0.000000001548299', '0.000000032491634', '0.000038315842070', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(3, 'Phosphorus (P2O5) (kg)', '0.000022123200000', '0.000000002288710', '0.000000000785225', '0.000000033738600', '0.000013094300000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(4, 'Potassium (K2O) (kg)', '0.000026837200000', '0.000000001796720', '0.000000000577230', '0.000000044500300', '0.000017527300000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(5, 'Kalsium (Ca) (kg)', '0.000023384400000', '0.000000001453570', '0.000000000328097', '0.000000099996600', '0.000014610900000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(6, 'Magnesium (Mg) (kg)', '0.000014066700000', '0.000000000351954', '0.000000000271106', '0.000000000247500', '0.000037015000000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(7, 'Sulfur (S) (kg)', '0.000000156383000', '0.000000000025422', '0.000000000001735', '0.000000000016776', '0.000000040901200', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(8, 'Listrik (kWh)', '0.000007341740000', '0.000000000455722', '0.000000000342045', '0.000000000474536', '0.000020179100000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(9, 'Poultry manure (kg)', '0.000005078030000', '0.000000000363095', '0.000000000117914', '0.000000006418780', '0.000003012120000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(10, 'Ammonia (NH3) (kg)', '0.000020946900000', '0.000000000225407', '0.000000000000007', '0.000000000162231', '0.000000109874000', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
-(11, 'Urea (CO(NH2)2) (kg)', '0.000006719570000', '0.000000000173591', '0.000000000000004', '0.000000000176239', '0.000000071182400', 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(1, 'Air (liter) ', 0.000000000794188, 0.000000000000047, 0.000000000000157, 0.000000000000063, 0.000000008533510, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(2, 'Nitrogen (N) (kg)', 0.000058311508916, 0.000000004181113, 0.000000001548299, 0.000000032491634, 0.000038315842070, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(3, 'Phosphorus (P2O5) (kg)', 0.000022123200000, 0.000000002288710, 0.000000000785225, 0.000000033738600, 0.000013094300000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(4, 'Potassium (K2O) (kg)', 0.000026837200000, 0.000000001796720, 0.000000000577230, 0.000000044500300, 0.000017527300000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(5, 'Kalsium (Ca) (kg)', 0.000023384400000, 0.000000001453570, 0.000000000328097, 0.000000099996600, 0.000014610900000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(6, 'Magnesium (Mg) (kg)', 0.000014066700000, 0.000000000351954, 0.000000000271106, 0.000000000247500, 0.000037015000000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(7, 'Sulfur (S) (kg)', 0.000000156383000, 0.000000000025422, 0.000000000001735, 0.000000000016776, 0.000000040901200, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(8, 'Listrik (kWh)', 0.000007341740000, 0.000000000455722, 0.000000000342045, 0.000000000474536, 0.000020179100000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(9, 'Poultry manure (kg)', 0.000005078030000, 0.000000000363095, 0.000000000117914, 0.000000006418780, 0.000003012120000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(10, 'Ammonia (NH3) (kg)', 0.000020946900000, 0.000000000225407, 0.000000000000007, 0.000000000162231, 0.000000109874000, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
+(11, 'Urea (CO(NH2)2) (kg)', 0.000006719570000, 0.000000000173591, 0.000000000000004, 0.000000000176239, 0.000000071182400, 'ReCiPe 2016 Endpoint (E) V1.06 / World (2010) E/A'),
 (12, 'Pekerja (MJ)', NULL, NULL, NULL, NULL, NULL, '-'),
-(16, 'Benih Selada (kg)', '0.000000000000000', '0.000000000000000', '0.000000000000000', '0.000000000000000', '0.000000000000000', '-');
+(16, 'Benih Selada (kg)', 0.000000000000000, 0.000000000000000, 0.000000000000000, 0.000000000000000, 0.000000000000000, '-');
 
 -- --------------------------------------------------------
 
@@ -167,7 +203,7 @@ INSERT INTO `lca_emisi` (`id_emisi`, `nama_material`, `GWP`, `AP`, `EP`, `ODP`, 
 CREATE TABLE `lca_jenismat` (
   `id_jenismat` int(11) NOT NULL,
   `jenis_material` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `lca_jenismat`
@@ -194,7 +230,7 @@ INSERT INTO `lca_jenismat` (`id_jenismat`, `jenis_material`) VALUES
 CREATE TABLE `lca_material` (
   `id_material` int(11) NOT NULL,
   `nama_material` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `lca_material`
@@ -225,7 +261,7 @@ CREATE TABLE `lca_proses` (
   `id_proses` int(11) NOT NULL,
   `userId` int(11) DEFAULT NULL,
   `proses` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `lca_proses`
@@ -258,7 +294,7 @@ CREATE TABLE `lca_tahun` (
   `id_tahun` int(11) NOT NULL,
   `userId` int(11) DEFAULT NULL,
   `tahun` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `lca_tahun`
@@ -286,7 +322,8 @@ INSERT INTO `lca_tahun` (`id_tahun`, `userId`, `tahun`) VALUES
 
 CREATE TABLE `rancangan_skenario` (
   `id_skenario` int(2) NOT NULL,
-  `skenario` varchar(50) NOT NULL,
+  `skenario` varchar(20) NOT NULL,
+  `deskripsi` varchar(50) NOT NULL,
   `input1` varchar(50) NOT NULL,
   `input2` varchar(50) NOT NULL,
   `input3` varchar(50) NOT NULL,
@@ -306,28 +343,28 @@ CREATE TABLE `rancangan_skenario` (
   `input17` varchar(50) NOT NULL,
   `input18` varchar(50) NOT NULL,
   `input19` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `rancangan_skenario`
 --
 
-INSERT INTO `rancangan_skenario` (`id_skenario`, `skenario`, `input1`, `input2`, `input3`, `input4`, `input5`, `input6`, `input7`, `input8`, `input9`, `input10`, `input11`, `input12`, `input13`, `input14`, `input15`, `input16`, `input17`, `input18`, `input19`) VALUES
-(1, 'Intensif, Manual, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(2, 'Intensif, Manual, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(3, 'Intensif, Manual, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(4, 'Intensif, Kimiawi, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(5, 'Intensif, Kimiawi, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(6, 'Intensif, Kimiawi, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(7, 'Intensif, Mekanis, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(8, 'Intensif, Mekanis, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(9, 'Intensif, Mekanis, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(10, 'Organik, Manual, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(11, 'Organik, Manual, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(12, 'Organik, Manual, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(13, 'Organik, Mekanis, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(14, 'Organik, Mekanis, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
-(15, 'Organik, Mekanis, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan');
+INSERT INTO `rancangan_skenario` (`id_skenario`, `skenario`, `deskripsi`, `input1`, `input2`, `input3`, `input4`, `input5`, `input6`, `input7`, `input8`, `input9`, `input10`, `input11`, `input12`, `input13`, `input14`, `input15`, `input16`, `input17`, `input18`, `input19`) VALUES
+(1, 'Skenario 4', 'Intensif, Manual, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(2, 'Skenario 5', 'Intensif, Manual, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(3, 'Skenario 6', 'Intensif, Manual, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(4, 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(5, 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(6, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(7, 'Skenario 7', 'Intensif, Mekanis, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(8, 'Skenario 8', 'Intensif, Mekanis, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(9, 'Skenario 9', 'Intensif, Mekanis, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(10, 'Skenario 10', 'Organik, Manual, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(11, 'Skenario 11', 'Organik, Manual, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(12, 'Skenario 12', 'Organik, Manual, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(13, 'Skenario 13', 'Organik, Mekanis, Wet Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'Fermentasi', 'Pembersihan Kopi HS', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(14, 'Skenario 14', 'Organik, Mekanis, Semi-dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'Pulping ', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan'),
+(15, 'Skenario 15', 'Organik, Mekanis, Dry Process', 'Lahan', 'Alsintan', 'Pengadaan Bibit', 'Persiapan Lahan', 'Penanaman', 'Penyulaman', 'Pemupukan', 'Pengendalian OPT', 'Pemangkasan', 'Pemanenan', 'Lahan dan Bangunan', 'Pembersihan Buah Kopi', 'x', 'x', 'x', 'Pengeringan', 'Hulling', 'Sortasi Greenbean', 'Pengemasan');
 
 -- --------------------------------------------------------
 
@@ -346,7 +383,7 @@ CREATE TABLE `user` (
   `date_created` int(11) DEFAULT NULL,
   `lokasi` varchar(255) DEFAULT NULL,
   `nama_gh` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user`
@@ -374,7 +411,7 @@ CREATE TABLE `user_access_menu` (
   `id` int(11) NOT NULL,
   `role_id` int(11) DEFAULT NULL,
   `menu_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_access_menu`
@@ -393,7 +430,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 CREATE TABLE `user_menu` (
   `id` int(11) NOT NULL,
   `menu` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_menu`
@@ -412,7 +449,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL,
   `role` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_role`
@@ -438,7 +475,7 @@ CREATE TABLE `user_sub_menu` (
   `group_menu` int(5) NOT NULL DEFAULT 0,
   `is_active` int(11) DEFAULT NULL,
   `urutan` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_sub_menu`
@@ -469,7 +506,7 @@ CREATE TABLE `user_sub_sub_menu` (
   `url` varchar(50) NOT NULL,
   `urutan` int(11) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `user_sub_sub_menu`
@@ -500,6 +537,12 @@ INSERT INTO `user_sub_sub_menu` (`id`, `userId`, `group_menu`, `title`, `url`, `
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `bagan_skenario`
+--
+ALTER TABLE `bagan_skenario`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `hasil_skenario`
@@ -608,10 +651,16 @@ ALTER TABLE `user_sub_sub_menu`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `bagan_skenario`
+--
+ALTER TABLE `bagan_skenario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `lca_emisi`
