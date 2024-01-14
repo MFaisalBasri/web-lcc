@@ -1,7 +1,7 @@
     <div class="content-wrapper">
         <section class="content">
             <div class="row">
-                <div class="col-lg-12 col-12">
+                <div class="col-lg-6 col-12">
                     <div class="card-body d-flex justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="791px" viewBox="-0.5 -0.5 791 461" style="max-width:100%;max-height:461px;">
                             <defs />
@@ -259,7 +259,9 @@
                             </switch>
                         </svg>          
                     </div>
-                    <div id="keterangan" class="keterangan" style="margin-left: 500px; margin-top: -60px; height:100px; width:30%; border: 2px solid">Ini adalah keterangan</div>
+                </div>
+                <div class="col-lg-12 col-12">
+                    <div id="keterangan" class="keterangan" style="margin-left: 100px; margin-top: -60px; height:100px; width:30%; border: 2px solid">Ini adalah keterangan</div>
                 </div>
             </div>  
             <div class="row mt-5 ms-5 mb-5">

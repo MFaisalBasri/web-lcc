@@ -30,8 +30,9 @@ class Hasil_skenario extends CI_model
                intval($this->input->post('18', true)) +
                intval($this->input->post('19', true));
             $data = [
-                "id_user" => $this->input->post('id', true),
                 "kode_skenario" => "",
+                "id_skenario" => $this->input->post('id_skenario', true),
+                "id_user" => $this->input->post('id_user', true),
                 "jenis_skenario" => $this->input->post('jenis_skenario', true),
                 "skenario" => $this->input->post('0', true),
                 "lahan" => $this->input->post('1', true),
@@ -59,16 +60,10 @@ class Hasil_skenario extends CI_model
         }
     }
 
-    public function getTotal() {
-        $this->db->select('(alsintan + lahan) AS total', FALSE);
-        $query = $this->db->get('hasil_skenario');
-        return $query->result();
-    }
-
-    public function hapusDataMahasiswa($id)
+    public function hapusDataSkenario($id)
     {
-        // $this->db->where('id', $id);
-        $this->db->delete('mahasiswa', ['id' => $id]);
+        // $this->db->where('id_skenario', $id);
+        $this->db->delete('hasil_skenario', ['kode_skenario' => $id]);
     }
 
     public function getHasilById($id)
@@ -76,6 +71,20 @@ class Hasil_skenario extends CI_model
         $this->db->where('id_user', $id);
         $query = $this->db->get('hasil_skenario');
         return $query->result_array();
+    }
+  
+    public function getSkenario($id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->order_by('id_skenario', 'ASC');
+        $query = $this->db->get('hasil_skenario');
+        return $query->result();
+    }
+
+    public function getTotalData($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        return $this->db->count_all_results('hasil_skenario');
     }
 
     public function ubahDataMahasiswa()

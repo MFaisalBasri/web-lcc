@@ -3,6 +3,7 @@
         <div class="card-body">
             <div>
                 <h2>Data History</h2>
+                <?= $this->session->flashdata('message'); ?>
                 <div class="table" style="overflow-x:auto;">
                     <table class="table table-striped" style="overflow-x:auto;">
                         <thead>
@@ -33,9 +34,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($history as $h) : ?>
+                            <?php foreach ($history as $key => $h) : ?>
                                 <tr>
-                                    <th scop="row">1</th>
+                                    <th scope="row"><?= $key + 1; ?></th>
                                     <td><?= $h['skenario']; ?></td>
                                     <td>Rp.<?= $h['lahan']; ?></td>
                                     <td>Rp.<?= $h['alsintan']; ?></td>
@@ -59,8 +60,8 @@
                                     <td>Rp.<?= $h['total_biaya']; ?></td>
                                     <td>
                                     <td>
-                                        <span class="badge bg-warning">Edit</span>
-                                        <span class="badge bg-danger">Clear</span>
+                                    <a href="<?php echo base_url('EditHistory/'); ?>"><span class="badge bg-warning">Edit</span></a>
+                                    <a href="<?php echo base_url('History/hapus/' . $h['kode_skenario']); ?>"><span class="badge bg-danger">Clear</span></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

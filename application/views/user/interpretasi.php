@@ -5,12 +5,19 @@
                 <div class="content-wrapper">
                   <div>
                     <canvas id="myChart"></canvas>
-                      <?php
-                      $labels = [];
-                      foreach($hasil as $has) :
-                          $labels[] = $has['jenis_skenario'];
-                      ?>
-                      <?php endforeach; ?>
+                    <?php
+                    $labels = [];
+                    foreach ($hasil as $has) :
+                        $labels[] = $has->jenis_skenario;
+                    endforeach;
+                    ?>
+                    <?php
+                    $data = [];
+                    foreach ($total as $tot) :
+                      $data[] = $tot['total_biaya'];
+                    endforeach;
+                    ?>
+   
                   </div>
                 </div>
             </div>
@@ -28,8 +35,8 @@
     data: {
       labels: <?= json_encode($labels) ?>,
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Skenario',
+        data: <?= json_encode($data) ?>,
         borderWidth: 1
       }]
     },
@@ -42,3 +49,5 @@
     }
   });
 </script>
+
+                     

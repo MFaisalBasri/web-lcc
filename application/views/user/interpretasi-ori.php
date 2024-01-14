@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 if (!isset($_GET['dampak'])) {
   $_GET['dampak'] = "GWP";
 }
@@ -308,4 +308,4 @@ if (!isset($_GET['tahun'])) {
   //         }
   //     }
   // });
-</script> -->
+</script>

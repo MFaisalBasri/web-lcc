@@ -29,7 +29,7 @@
 
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>Nama Kopi</h3>
+              <h3>Kopi Sigararutang</h3>
               <p>Jenis Kopi</p>
             </div>
             <div class="icon">
@@ -43,7 +43,7 @@
 
           <div class="small-box bg-dark">
             <div class="inner">
-              <h3>5</h3>
+              <h3><?= $total_data; ?></h3>
               <p>Jumlah Data</p>
             </div>
             <div class="icon">
