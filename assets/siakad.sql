@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jan 2024 pada 14.52
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.1.17
+-- Host: 127.0.0.1:3306:3306
+-- Waktu pembuatan: 15 Jan 2024 pada 10.16
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `bagan_skenario` (
   `id` int(11) NOT NULL,
   `nama` varchar(20) NOT NULL,
   `deskripsi` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `bagan_skenario`
@@ -52,7 +52,7 @@ INSERT INTO `bagan_skenario` (`id`, `nama`, `deskripsi`) VALUES
 (19, 'Skenario 12', 'Organik - Manual - Dry process - Kopi greenbean'),
 (20, 'Skenario 13', 'Organik - Mekanis - Wet process - Kopi greenbean'),
 (21, 'Skenario 14', 'Organik - Mekanis - Semi-dry process - Kopi greenbean'),
-(22, 'Skenario 14', 'Organik - Mekanis - Dry process - Kopi greenbean');
+(22, 'Skenario 15', 'Organik - Mekanis - Dry process - Kopi greenbean');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE `hasil_skenario` (
   `sortasi_greenbean` int(10) NOT NULL,
   `pengemasan` int(10) NOT NULL,
   `total_biaya` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `hasil_skenario`
@@ -99,7 +99,16 @@ INSERT INTO `hasil_skenario` (`kode_skenario`, `id_skenario`, `id_user`, `jenis_
 (35, 15, 24, 'Skenario 15', 'Organik, Mekanis, Dry Process', 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12),
 (41, 3, 24, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5),
 (44, 1, 23, 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3),
-(45, 12, 23, 'Skenario 12', 'Organik, Manual, Dry Process', 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+(45, 12, 23, 'Skenario 12', 'Organik, Manual, Dry Process', 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3),
+(46, 11, 20, 'Skenario 11', 'Organik, Manual, Semi-dry Proc', 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 30),
+(49, 8, 20, 'Skenario 8', 'Intensif, Mekanis, Semi-dry Pr', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15),
+(50, 7, 23, 'Skenario 7', 'Intensif, Mekanis, Wet Process', 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7),
+(52, 5, 23, 'Skenario 5', 'Intensif, Manual, Semi-dry Pro', 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4),
+(53, 8, 23, 'Skenario 8', 'Intensif, Mekanis, Semi-dry Pr', 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8),
+(55, 3, 23, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8),
+(56, 2, 23, 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Pr', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+(57, 4, 23, 'Skenario 4', 'Intensif, Manual, Wet Process', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5),
+(58, 9, 20, 'Skenario 9', 'Intensif, Mekanis, Dry Process', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6);
 
 -- --------------------------------------------------------
 
@@ -130,7 +139,7 @@ CREATE TABLE `rancangan_skenario` (
   `input17` varchar(50) NOT NULL,
   `input18` varchar(50) NOT NULL,
   `input19` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `rancangan_skenario`
@@ -170,19 +179,13 @@ CREATE TABLE `user` (
   `date_created` int(11) DEFAULT NULL,
   `lokasi` varchar(255) DEFAULT NULL,
   `nama_gh` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `lokasi`, `nama_gh`) VALUES
-(11, 'Irfan Azmi Al-Hayat', 'irfan6699@gmail.com', 'avatar31.png', '$2y$10$N07IzieINXBHQmgGyWsBjeCZcjN1/POjg.Td8lSZsVHDrwEg9Faaa', 2, 1, 1657883071, 'Dramaga, Bogor', 'Greenhouse Leuwikopo'),
-(12, 'Nafri A', 'nafri6699@gmail.com', 'avatar3.png', '$2y$10$UHUPM930wjqNWy3YNnxluuvBG0GBZz0u1AMTe0maZSqjVlZVpE7YK', 1, 1, 1657883082, NULL, NULL),
-(13, 'Bob si Petani', 'bob@gmail.com', 'avatar53.png', '$2y$10$cPr7P/nyP5QiZ9eyw2yUz.ShScW7En7vjm9Q1wnp/jbapQiE0r2Ny', 2, 1, 1657944496, 'Dramaga, Bogor', 'Greenhouse Selada 1 Bob'),
-(14, 'irfan', 'irfan2@gmail.com', 'avatar3.png', '$2y$10$oxXnOuUE3mj1SNIVnPWnnuCRcqKkt6017jpjMOKmmz/xSEPW4wyTq', 2, 1, 1658910305, 'asdas', 'asds'),
-(18, 'userbaru', 'userbaru@gmail.com', 'avatar3.png', '$2y$10$3HPFGiEA.dIopk7bet6PT.HwUKJHtci/IaxFb4yVj9znA8l7oPMae', 2, 1, 1660742327, 'Zimbabwe', 'house baru'),
-(19, 'userbaru2', 'userbaru2@gmail.com', 'avatar3.png', '$2y$10$7oGtugRvAzPEUM.WoAS5ZOT5EKC6xgYGFPhOgHcxHSklJEuC9Jq86', 2, 1, 1661269270, 'Wakanda', 'house baru'),
 (20, 'faisal', 'faisal@gmail.com', 'avatar3.png', '$2y$10$jJGy87DeppWZEDIaQvWAeuEzmT7wzAWmIKJb8ikrf1OTmb9LVTQM6', 2, 1, 1704514865, 'Jakarta', 'faisal'),
 (21, 'bank-sampah', 'Internets420@gmail.com', 'avatar3.png', '$2y$10$uSs//JW32neq3TvR6KJBYecl3kvduA/8gomdC4gt38SmBvRkoof9e', 2, 1, 1704722143, 'jak', 'al'),
 (22, 'set', 'edrick@gmail.com', 'avatar3.png', '$2y$10$yWygr/HY6duHwSYVxkbtj.5WngqEE4rs2SyzblDItxjyp4KKwEYTC', 2, 1, 1704722301, 'Bekasi', 'faisal'),
@@ -199,7 +202,7 @@ CREATE TABLE `user_access_menu` (
   `id` int(11) NOT NULL,
   `role_id` int(11) DEFAULT NULL,
   `menu_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user_access_menu`
@@ -218,7 +221,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 CREATE TABLE `user_menu` (
   `id` int(11) NOT NULL,
   `menu` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user_menu`
@@ -237,7 +240,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL,
   `role` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user_role`
@@ -263,7 +266,7 @@ CREATE TABLE `user_sub_menu` (
   `group_menu` int(5) NOT NULL DEFAULT 0,
   `is_active` int(11) DEFAULT NULL,
   `urutan` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user_sub_menu`
@@ -294,33 +297,7 @@ CREATE TABLE `user_sub_sub_menu` (
   `url` varchar(50) NOT NULL,
   `urutan` int(11) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data untuk tabel `user_sub_sub_menu`
---
-
-INSERT INTO `user_sub_sub_menu` (`id`, `userId`, `group_menu`, `title`, `url`, `urutan`, `date_created`) VALUES
-(1, 11, 4, 'Data', 'masterdata', 1, 0),
-(72, 11, 1, 'Pembibitan', 'lcia?proses=Pembibitan', 1, 1658495044),
-(73, 11, 3, 'Pembibitan', 'lci?proses=Pembibitan', 1, 1658495044),
-(74, 13, 2, 'Dalam Greenhouse', 'datlingdalam', 0, 0),
-(75, 13, 2, 'Luar Greenhouse', 'datlingluar', 0, 0),
-(77, 11, 1, 'Pemeliharaan', 'lcia?proses=Pemeliharaan', 2, 1658495120),
-(78, 11, 3, 'Pemeliharaan', 'lci?proses=Pemeliharaan', 2, 1658495120),
-(83, 11, 1, 'Pemanenan', 'lcia?proses=Pemanenan', 3, 1658495185),
-(84, 11, 3, 'Pemanenan', 'lci?proses=Pemanenan', 3, 1658495185),
-(85, 13, 1, 'Pembibitan', 'lcia?proses=Pembibitan', 1, 1658500837),
-(86, 13, 3, 'Pembibitan', 'lci?proses=Pembibitan', 1, 1658500837),
-(87, 13, 1, 'Pemeliharaan', 'lcia?proses=Pemeliharaan', 2, 1658500843),
-(88, 13, 3, 'Pemeliharaan', 'lci?proses=Pemeliharaan', 2, 1658500843),
-(89, 13, 1, 'Pemanenan', 'lcia?proses=Pemanenan', 3, 1658500853),
-(90, 13, 3, 'Pemanenan', 'lci?proses=Pemanenan', 3, 1658500853),
-(99, 11, 4, 'Proses', 'masterdata/proses', 2, 0),
-(100, 11, 4, 'Tahun', 'masterdata/Tahun', 3, 0),
-(101, 13, 4, 'Proses', 'masterdata/proses', 2, 0),
-(102, 13, 4, 'Tahun', 'masterdata/Tahun', 3, 0),
-(105, 13, 4, 'Data', 'masterdata', 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -400,7 +377,7 @@ ALTER TABLE `bagan_skenario`
 -- AUTO_INCREMENT untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

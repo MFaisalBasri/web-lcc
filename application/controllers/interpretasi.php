@@ -10,11 +10,6 @@ class interpretasi extends CI_Controller
 			redirect('auth');
 		}
 	}
-	// public function __construct()
-	// {
-	//     parent::__construct();
-	//     $this->load->model('interpretasi');
-	// }
 
 	public function index()
 	{
@@ -22,8 +17,7 @@ class interpretasi extends CI_Controller
 		$data['user'] = $this->db->get_where('user', ['email' =>
 		$this->session->userdata('email')])->row_array();
 		$id = $data['user']['id'];
-		$data['total'] =$this->Hasil_skenario->getHasilById($id);
-		$data['hasil'] =$this->Hasil_skenario->getSkenario($id);
+		$data['total'] = $this->Hasil_skenario->getHasilById($id);
 
 		$this->load->view('user/headeruser', $data);
 		$this->load->view('user/sidebaruser', $data);

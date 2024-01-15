@@ -1,28 +1,28 @@
 <div class="content-wrapper">
-    <section class="content">
-        <div class="row">
-            <div class="col-lg-12 col-12">
-                <div class="content-wrapper">
-                  <div>
-                    <canvas id="myChart"></canvas>
-                    <?php
-                    $labels = [];
-                    foreach ($hasil as $has) :
-                        $labels[] = $has->jenis_skenario;
-                    endforeach;
-                    ?>
-                    <?php
-                    $data = [];
-                    foreach ($total as $tot) :
-                      $data[] = $tot['total_biaya'];
-                    endforeach;
-                    ?>
-   
-                  </div>
-                </div>
-            </div>
+  <section class="content">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <div class="content-wrapper">
+          <div>
+            <canvas id="myChart"></canvas>
+            <?php
+            $labels = [];
+            foreach ($total as $has) :
+              $labels[] = $has['jenis_skenario'];
+            endforeach;
+            ?>
+            <?php
+            $data = [];
+            foreach ($total as $tot) :
+              $data[] = $tot['total_biaya'];
+            endforeach;
+            ?>
+
+          </div>
         </div>
-    </section>   
+      </div>
+    </div>
+  </section>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -49,5 +49,3 @@
     }
   });
 </script>
-
-                     

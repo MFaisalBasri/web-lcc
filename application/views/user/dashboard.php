@@ -39,8 +39,12 @@
           </div>
         </div>
 
-         <div class="col-lg-4 col-6">
-
+        <div class="col-lg-4 col-6">
+          <?php
+          if (!isset($total_data)) {
+            $total_data = 0;
+          }
+          ?>
           <div class="small-box bg-dark">
             <div class="inner">
               <h3><?= $total_data; ?></h3>
@@ -78,49 +82,49 @@
               <hr>
               <div class="row">
 
-                  <div class="col col-lg-4 col-12 d-flex justify-content-center">
-                    <div class="card" style="width:100%" class="mx-auto">
-                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-1.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">Gambar 1. <b>Proses Penyemaian</b></p>
-                      </div>
+                <div class="col col-lg-4 col-12 d-flex justify-content-center">
+                  <div class="card" style="width:100%" class="mx-auto">
+                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-1.png" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Gambar 1. <b>Proses Penyemaian</b></p>
                     </div>
                   </div>
-
-                  <div class="col col-lg-4 col-12 d-flex justify-content-center">
-                    <div class="card" style="width:100%" class="mx-auto">
-                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-2.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">Gambar 2. <b>Proses Budidaya kopi</b></p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col col-lg-4 col-12 d-flex justify-content-center">
-                    <div class="card" style="width:100%" class="mx-auto">
-                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-3.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">Gambar 3. <b>Proses Pemanenan kopi</b> </p>
-                      </div>
-                    </div>
-                  </div>  
-              
                 </div>
+
+                <div class="col col-lg-4 col-12 d-flex justify-content-center">
+                  <div class="card" style="width:100%" class="mx-auto">
+                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-2.png" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Gambar 2. <b>Proses Budidaya kopi</b></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col col-lg-4 col-12 d-flex justify-content-center">
+                  <div class="card" style="width:100%" class="mx-auto">
+                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/dist/img/kopi-3.png" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Gambar 3. <b>Proses Pemanenan kopi</b> </p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-
-
-
-
-
-
-
-
-
             </div>
+
+
+
+
+
+
+
+
+
           </div>
       </div>
-      <div>
-      </div>
+    </div>
+    <div>
+    </div>
   </section>
 
 

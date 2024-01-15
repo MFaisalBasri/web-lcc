@@ -9,54 +9,61 @@ class Hasil_skenario extends CI_model
 
     public function tambahDataHasil()
     {
+
         if ($this->input->post('tambah')) {
-            $total_biaya = intval($this->input->post('1', true)) +
-               intval($this->input->post('2', true)) +
-               intval($this->input->post('3', true)) +
-               intval($this->input->post('4', true)) +
-               intval($this->input->post('5', true)) +
-               intval($this->input->post('6', true)) +
-               intval($this->input->post('7', true)) +
-               intval($this->input->post('8', true)) +
-               intval($this->input->post('9', true)) +
-               intval($this->input->post('10', true)) +
-               intval($this->input->post('11', true)) +
-               intval($this->input->post('12', true)) +
-               intval($this->input->post('13', true)) +
-               intval($this->input->post('14', true)) +
-               intval($this->input->post('15', true)) +
-               intval($this->input->post('16', true)) +
-               intval($this->input->post('17', true)) +
-               intval($this->input->post('18', true)) +
-               intval($this->input->post('19', true));
-            $data = [
-                "kode_skenario" => "",
-                "id_skenario" => $this->input->post('id_skenario', true),
-                "id_user" => $this->input->post('id_user', true),
-                "jenis_skenario" => $this->input->post('jenis_skenario', true),
-                "skenario" => $this->input->post('0', true),
-                "lahan" => $this->input->post('1', true),
-                "alsintan" => $this->input->post('2', true),
-                "pengadaan_bibit" => $this->input->post('3'),
-                "persiapan_lahan" => $this->input->post('4', true),
-                "penanaman" => $this->input->post('5', true),
-                "penyulaman" => $this->input->post('6', true),
-                "pemupukan" => $this->input->post('7', true),
-                "pengendalian_opt" => $this->input->post('8', true),
-                "pemangkasan" => $this->input->post('9', true),
-                "pemanenan" => $this->input->post('10', true),
-                "lahan_dan_bangunan" => $this->input->post('11', true),
-                "pembersihan_buah" => $this->input->post('12', true),
-                "pulping" => $this->input->post('13', true),
-                "fermentasi" => $this->input->post('14', true),
-                "pembersih_kopi_hs" => $this->input->post('15', true),
-                "pengeringan" => $this->input->post('16', true),
-                "hulling" => $this->input->post('17', true),
-                "sortasi_greenbean" => $this->input->post('18', true),
-                "pengemasan" => $this->input->post('19', true),
-                "total_biaya" => $total_biaya
-            ];
-            $this->db->insert('hasil_skenario', $data);
+            $id_skenario = $this->input->post('jenis_skenario');
+            $cek_query = $this->db->get_where('hasil_skenario', array('jenis_skenario' => $id_skenario));
+            if ($cek_query->num_rows() > 0) {
+                redirect('history');
+            } else {
+                $total_biaya = intval($this->input->post('1', true)) +
+                    intval($this->input->post('2', true)) +
+                    intval($this->input->post('3', true)) +
+                    intval($this->input->post('4', true)) +
+                    intval($this->input->post('5', true)) +
+                    intval($this->input->post('6', true)) +
+                    intval($this->input->post('7', true)) +
+                    intval($this->input->post('8', true)) +
+                    intval($this->input->post('9', true)) +
+                    intval($this->input->post('10', true)) +
+                    intval($this->input->post('11', true)) +
+                    intval($this->input->post('12', true)) +
+                    intval($this->input->post('13', true)) +
+                    intval($this->input->post('14', true)) +
+                    intval($this->input->post('15', true)) +
+                    intval($this->input->post('16', true)) +
+                    intval($this->input->post('17', true)) +
+                    intval($this->input->post('18', true)) +
+                    intval($this->input->post('19', true));
+                $data = [
+                    "kode_skenario" => "",
+                    "id_skenario" => $this->input->post('id_skenario', true),
+                    "id_user" => $this->input->post('id_user', true),
+                    "jenis_skenario" => $this->input->post('jenis_skenario', true),
+                    "skenario" => $this->input->post('0', true),
+                    "lahan" => $this->input->post('1', true),
+                    "alsintan" => $this->input->post('2', true),
+                    "pengadaan_bibit" => $this->input->post('3'),
+                    "persiapan_lahan" => $this->input->post('4', true),
+                    "penanaman" => $this->input->post('5', true),
+                    "penyulaman" => $this->input->post('6', true),
+                    "pemupukan" => $this->input->post('7', true),
+                    "pengendalian_opt" => $this->input->post('8', true),
+                    "pemangkasan" => $this->input->post('9', true),
+                    "pemanenan" => $this->input->post('10', true),
+                    "lahan_dan_bangunan" => $this->input->post('11', true),
+                    "pembersihan_buah" => $this->input->post('12', true),
+                    "pulping" => $this->input->post('13', true),
+                    "fermentasi" => $this->input->post('14', true),
+                    "pembersih_kopi_hs" => $this->input->post('15', true),
+                    "pengeringan" => $this->input->post('16', true),
+                    "hulling" => $this->input->post('17', true),
+                    "sortasi_greenbean" => $this->input->post('18', true),
+                    "pengemasan" => $this->input->post('19', true),
+                    "total_biaya" => $total_biaya
+                ];
+                $this->db->insert('hasil_skenario', $data);
+            }
         }
     }
 
@@ -69,16 +76,9 @@ class Hasil_skenario extends CI_model
     public function getHasilById($id)
     {
         $this->db->where('id_user', $id);
-        $query = $this->db->get('hasil_skenario');
-        return $query->result_array();
-    }
-  
-    public function getSkenario($id)
-    {
-        $this->db->where('id_user', $id);
         $this->db->order_by('id_skenario', 'ASC');
         $query = $this->db->get('hasil_skenario');
-        return $query->result();
+        return $query->result_array();
     }
 
     public function getTotalData($id_user)
