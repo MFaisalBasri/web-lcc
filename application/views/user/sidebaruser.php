@@ -66,6 +66,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="<?= base_url('komparasi') ?>" class="nav-link <?= $title == 'Komparasi' ? 'active' : ''; ?>">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              Komparasi
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -9,6 +9,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Jenis Skenario</th>
                                 <th scope="col">Skenario</th>
                                 <th scope="col">Lahan</th>
                                 <th scope="col">Alsintan</th>
@@ -37,6 +38,7 @@
                             <?php foreach ($history as $key => $h) : ?>
                                 <tr>
                                     <th scope="row"><?= $key + 1; ?></th>
+                                    <td><?= $h['jenis_skenario']; ?></td>
                                     <td><?= $h['skenario']; ?></td>
                                     <td>Rp.<?= $h['lahan']; ?></td>
                                     <td>Rp.<?= $h['alsintan']; ?></td>
@@ -60,8 +62,8 @@
                                     <td>Rp.<?= $h['total_biaya']; ?></td>
                                     <td>
                                     <td>
-                                    <a href="<?php echo base_url('EditHistory/'); ?>"><span class="badge bg-warning">Edit</span></a>
-                                    <a href="<?php echo base_url('History/hapus/' . $h['kode_skenario']); ?>"><span class="badge bg-danger">Clear</span></a>
+                                        <a href="<?php echo base_url('History/ubah/' . $h['id_skenario']); ?>"><span class="badge bg-warning">Edit</span></a>
+                                        <a href="<?php echo base_url('History/hapus/' . $h['kode_skenario']); ?>"><span class="badge bg-danger">Clear</span></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

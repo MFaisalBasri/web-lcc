@@ -11,8 +11,9 @@ class Hasil_skenario extends CI_model
     {
 
         if ($this->input->post('tambah')) {
-            $id_skenario = $this->input->post('jenis_skenario');
-            $cek_query = $this->db->get_where('hasil_skenario', array('jenis_skenario' => $id_skenario));
+            $id_skenario = $this->input->post('id_skenario');
+            $cek_query = $this->db->get_where('hasil_skenario', ['id_skenario' => $id_skenario, 'id_user' => $this->input->post('id_user', true)]);
+
             if ($cek_query->num_rows() > 0) {
                 redirect('history');
             } else {
@@ -81,23 +82,54 @@ class Hasil_skenario extends CI_model
         return $query->result_array();
     }
 
+    public function getHasilByIdSkenario($id_skenario, $id_user)
+    {
+        $this->db->where('id_skenario', $id_skenario);
+        $this->db->where('id_user', $id_user);
+
+        $query = $this->db->get('hasil_skenario');
+
+        return $query->result_array();
+    }
+
     public function getTotalData($id_user)
     {
         $this->db->where('id_user', $id_user);
         return $this->db->count_all_results('hasil_skenario');
     }
 
-    public function ubahDataMahasiswa()
+    public function ubahDataHistory()
     {
         $data = [
-            "nama" => $this->input->post('nama', true),
-            "nrp" => $this->input->post('nrp', true),
-            "email" => $this->input->post('email', true),
-            "jurusan" => $this->input->post('jurusan', true),
+            "kode_skenario" => "",
+            "id_skenario" => $this->input->post('id_skenario', true),
+            "id_user" => $this->input->post('id_user', true),
+            "jenis_skenario" => $this->input->post('jenis_skenario', true),
+            "skenario" => $this->input->post('0', true),
+            "lahan" => $this->input->post('1', true),
+            "alsintan" => $this->input->post('2', true),
+            "pengadaan_bibit" => $this->input->post('3'),
+            "persiapan_lahan" => $this->input->post('4', true),
+            "penanaman" => $this->input->post('5', true),
+            "penyulaman" => $this->input->post('6', true),
+            "pemupukan" => $this->input->post('7', true),
+            "pengendalian_opt" => $this->input->post('8', true),
+            "pemangkasan" => $this->input->post('9', true),
+            "pemanenan" => $this->input->post('10', true),
+            "lahan_dan_bangunan" => $this->input->post('11', true),
+            "pembersihan_buah" => $this->input->post('12', true),
+            "pulping" => $this->input->post('13', true),
+            "fermentasi" => $this->input->post('14', true),
+            "pembersih_kopi_hs" => $this->input->post('15', true),
+            "pengeringan" => $this->input->post('16', true),
+            "hulling" => $this->input->post('17', true),
+            "sortasi_greenbean" => $this->input->post('18', true),
+            "pengemasan" => $this->input->post('19', true),
+            "total_biaya" => $total_biaya
         ];
 
-        $this->db->where('id', $this->input->post('id'));
-        $this->db->update('mahasiswa', $data);
+        $this->db->where('id_skenario', $this->input->post('id_skenario'));
+        $this->db->update('hasil_skenario', $data);
     }
 
     public function cariDataMahasiswa()
