@@ -17,7 +17,17 @@
               $data[] = $tot['total_biaya'];
             endforeach;
             ?>
-
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-12">
+              <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <p>Produksi dengan Life Cycle Cost terendah terdapat pada skenario usaha X (Organik, Mekanis,semi-dry process) sebesar Rp.xxx.
+                    Produksi dengan Life Cycle Cost tertinggi terdapat pada skenario usaha Y (Organik, Mekanis,semi-dry process) sebesar Rp.xxx.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

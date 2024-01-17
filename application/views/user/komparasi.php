@@ -2,23 +2,23 @@
     <section class="content">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-3 col-3">
-                    <div class="small-box bg-dark">
-                        <div class="inner">
+                <div class="col-lg-3 col-6">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
                             <h5>Komparasi Skenario</h5>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-3">
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h5>Pilih Skenario Usaha</h5>
+                <div class="col-lg-3 col-6">
+                    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5>Komparasi Skenario</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-9">
+                <div class="col-lg-9 col-12">
                     <div class="row">
                         <div class="col-lg-5 col-5">
                             <form method="post" action="" id="mainForm1">
@@ -30,7 +30,7 @@
                                     <?php endforeach; ?>
                                 </select>
                         </div>
-                        <div class="col-lg-4 col-4">
+                        <div class="col-lg-4 col-5">
                             <label for="skenarioDropdown2">Pilih Skenario 2:</label>
                             <select name="skenarioDropdown2" id="skenarioDropdown2">
                                 <option value="" selected disabled>Pilih Skenario</option>

@@ -2,23 +2,23 @@
     <section class="content">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-3 col-3">
-                    <div class="small-box bg-info">
-                        <div class="inner">
+                <div class="col-lg-3 col-6">
+                    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
                             <h5>Perhitungan LCC</h5>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-3">
-                    <div class="small-box bg-warning">
-                        <div class="inner">
+                <div class="col-lg-3 col-6">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
                             <h5>Pilih Skenario Usaha</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-6">
+                <div class="col-lg-6 col-12">
                     <form method="post" action="" id="mainForm">
                         <label for="skenarioDropdown">Pilih Skenario:</label>
                         <select name="skenarioDropdown" id="skenarioDropdown" onchange="document.getElementById('mainForm').submit();">
@@ -42,7 +42,7 @@
                             <input type="text" name="id_user" value="<?= $user['id']; ?>" hidden><br>
                             <input type="text" name="jenis_skenario" value="<?= $pertanyaan['skenario']; ?>"><br>
                             <input type="text" name="0" value="<?= $pertanyaan['deskripsi']; ?>" hidden><br>
-                           <?php $totalValue = 0; ?> 
+                            <?php $totalValue = 0; ?>
                             <?php for ($i = 1; $i <= 19; $i++) {
                                 $labelName = "input" . $i;
                                 $disable = ($pertanyaan[$labelName] == "x") ? 'hidden' : '';

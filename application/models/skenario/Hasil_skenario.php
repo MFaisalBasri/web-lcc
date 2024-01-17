@@ -100,12 +100,14 @@ class Hasil_skenario extends CI_model
 
     public function ubahDataHistory()
     {
+        $id_skenario = $this->input->post('id_skenario', true);
+
         $data = [
-            "kode_skenario" => "",
+            // "kode_skenario" => $this->input->post('kode_skenario', true),
             "id_skenario" => $this->input->post('id_skenario', true),
             "id_user" => $this->input->post('id_user', true),
             "jenis_skenario" => $this->input->post('jenis_skenario', true),
-            "skenario" => $this->input->post('0', true),
+            "skenario" => $this->input->post('skenario', true),
             "lahan" => $this->input->post('1', true),
             "alsintan" => $this->input->post('2', true),
             "pengadaan_bibit" => $this->input->post('3'),
@@ -125,10 +127,10 @@ class Hasil_skenario extends CI_model
             "hulling" => $this->input->post('17', true),
             "sortasi_greenbean" => $this->input->post('18', true),
             "pengemasan" => $this->input->post('19', true),
-            "total_biaya" => $total_biaya
+            "total_biaya" =>  $this->input->post('total_biaya', true)
         ];
 
-        $this->db->where('id_skenario', $this->input->post('id_skenario'));
+        $this->db->where('id_skenario', $id_skenario);
         $this->db->update('hasil_skenario', $data);
     }
 
