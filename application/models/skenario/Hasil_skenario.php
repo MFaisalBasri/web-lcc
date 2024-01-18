@@ -70,7 +70,6 @@ class Hasil_skenario extends CI_model
 
     public function hapusDataSkenario($id)
     {
-        // $this->db->where('id_skenario', $id);
         $this->db->delete('hasil_skenario', ['kode_skenario' => $id]);
     }
 
@@ -79,6 +78,39 @@ class Hasil_skenario extends CI_model
         $this->db->where('id_user', $id);
         $this->db->order_by('id_skenario', 'ASC');
         $query = $this->db->get('hasil_skenario');
+        return $query->result_array();
+    }
+
+    public function getHasilMax($id)
+    {
+        $this->db->select_max('total_biaya');
+        $this->db->where('id_user', $id);
+        $maxTotalBiayaQuery = $this->db->get('hasil_skenario');
+
+        $maxTotalBiayaRow = $maxTotalBiayaQuery->row();
+        $maxTotalBiaya = $maxTotalBiayaRow ? $maxTotalBiayaRow->total_biaya : 0;
+
+        $this->db->select('skenario, total_biaya');
+        $this->db->where('id_user', $id);
+        $this->db->where('total_biaya', $maxTotalBiaya);
+        $query = $this->db->get('hasil_skenario');
+
+        return $query->result_array();
+    }
+    public function getHasilMin($id)
+    {
+        $this->db->select_min('total_biaya');
+        $this->db->where('id_user', $id);
+        $maxTotalBiayaQuery = $this->db->get('hasil_skenario');
+
+        $maxTotalBiayaRow = $maxTotalBiayaQuery->row();
+        $maxTotalBiaya = $maxTotalBiayaRow ? $maxTotalBiayaRow->total_biaya : 0;
+
+        $this->db->select('skenario, total_biaya');
+        $this->db->where('id_user', $id);
+        $this->db->where('total_biaya', $maxTotalBiaya);
+        $query = $this->db->get('hasil_skenario');
+
         return $query->result_array();
     }
 
@@ -101,9 +133,27 @@ class Hasil_skenario extends CI_model
     public function ubahDataHistory()
     {
         $id_skenario = $this->input->post('id_skenario', true);
+        $total_biaya = intval($this->input->post('1', true)) +
+            intval($this->input->post('2', true)) +
+            intval($this->input->post('3', true)) +
+            intval($this->input->post('4', true)) +
+            intval($this->input->post('5', true)) +
+            intval($this->input->post('6', true)) +
+            intval($this->input->post('7', true)) +
+            intval($this->input->post('8', true)) +
+            intval($this->input->post('9', true)) +
+            intval($this->input->post('10', true)) +
+            intval($this->input->post('11', true)) +
+            intval($this->input->post('12', true)) +
+            intval($this->input->post('13', true)) +
+            intval($this->input->post('14', true)) +
+            intval($this->input->post('15', true)) +
+            intval($this->input->post('16', true)) +
+            intval($this->input->post('17', true)) +
+            intval($this->input->post('18', true)) +
+            intval($this->input->post('19', true));
 
         $data = [
-            // "kode_skenario" => $this->input->post('kode_skenario', true),
             "id_skenario" => $this->input->post('id_skenario', true),
             "id_user" => $this->input->post('id_user', true),
             "jenis_skenario" => $this->input->post('jenis_skenario', true),
@@ -127,7 +177,7 @@ class Hasil_skenario extends CI_model
             "hulling" => $this->input->post('17', true),
             "sortasi_greenbean" => $this->input->post('18', true),
             "pengemasan" => $this->input->post('19', true),
-            "total_biaya" =>  $this->input->post('total_biaya', true)
+            "total_biaya" =>  $total_biaya
         ];
 
         $this->db->where('id_skenario', $id_skenario);

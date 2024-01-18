@@ -24,13 +24,13 @@ class History extends CI_Controller
         $this->load->view('user/footeruser');
     }
 
-    // public function hapus($kode_skenario)
-    // {
-    //     $this->Hasil_skenario->hapusDataSkenario($kode_skenario);
-    //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data Skenario
-    //     has been delete!</div>');
-    //     redirect('history');
-    // }
+    public function hapus($kode_skenario)
+    {
+        $this->Hasil_skenario->hapusDataSkenario($kode_skenario);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data Skenario
+        has been delete!</div>');
+        redirect('history');
+    }
 
     public function ubah($id_skenario)
     {

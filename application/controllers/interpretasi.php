@@ -18,6 +18,8 @@ class Interpretasi extends CI_Controller
 		$this->session->userdata('email')])->row_array();
 		$id = $data['user']['id'];
 		$data['total'] = $this->Hasil_skenario->getHasilById($id);
+		$data['max'] = $this->Hasil_skenario->getHasilMax($id);
+		$data['min'] = $this->Hasil_skenario->getHasilMin($id);
 
 		$this->load->view('user/headeruser', $data);
 		$this->load->view('user/sidebaruser', $data);

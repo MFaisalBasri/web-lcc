@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-md-6">
                     <?php foreach ($history as $row) : ?>
-                        <h5>Data untuk User: <?= $row['id_user']; ?> </h5>
+                        <h5>Data: <?= $row['jenis_skenario']; ?> </h5>
                     <?php endforeach; ?>
                     <div class="row g-3 align-items-center">
                         <form action="" method="post">
@@ -185,7 +185,7 @@
                             <label for="$labelName" $hideLabel class="col-form-label">Total Biaya</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" name="total_biaya" value="<?= $row['total_biaya']; ?>" class="form-control" $disable autocomplete="off">
+                            <input type="text" name="total_biaya" value="<?= $row['total_biaya']; ?>" class="form-control" readonly autocomplete="off">
                         </div>
                     </div>
                     <input type="submit" value="Edit">

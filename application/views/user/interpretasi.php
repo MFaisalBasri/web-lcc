@@ -22,9 +22,13 @@
             <div class="col-lg-12 col-12">
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-body">
-                  <p>Produksi dengan Life Cycle Cost terendah terdapat pada skenario usaha X (Organik, Mekanis,semi-dry process) sebesar Rp.xxx.
-                    Produksi dengan Life Cycle Cost tertinggi terdapat pada skenario usaha Y (Organik, Mekanis,semi-dry process) sebesar Rp.xxx.
-                  </p>
+                  <?php foreach ($max as $row) : ?>
+                    <?php foreach ($min as $rowMin) : ?>
+                      <p>Produksi dengan Life Cycle Cost terendah terdapat pada skenario usaha X (<?= $rowMin['skenario']; ?>) sebesar Rp.<?= $rowMin['total_biaya']; ?>
+                        Produksi dengan Life Cycle Cost tertinggi terdapat pada skenario usaha Y (<?= $row['skenario']; ?>) sebesar Rp.<?= $row['total_biaya']; ?>
+                      </p>
+                    <?php endforeach; ?>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>
