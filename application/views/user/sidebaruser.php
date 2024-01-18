@@ -35,7 +35,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item <?= $title == 'Input Data' || $title == 'Data History' ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-edit"></i>
             <p>
@@ -58,21 +58,28 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a href="<?= base_url('interpretasi') ?>" class="nav-link <?= $title == 'Interpretasi' ? 'active' : ''; ?>">
-            <i class="nav-icon fas fa-chart-pie"></i>
+        <li class="nav-item <?= $title == 'Rekapitulasi' || $title == 'Komparasi' ? 'menu-open' : ''; ?>">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
             <p>
               Interpretasi
+              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?= base_url('komparasi') ?>" class="nav-link <?= $title == 'Komparasi' ? 'active' : ''; ?>">
-            <i class="nav-icon fas fa-chart-pie"></i>
-            <p>
-              Komparasi
-            </p>
-          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= base_url('rekapitulasi') ?>" class="nav-link <?= $title == 'Rekapitulasi' ? 'active' : ''; ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Rekapitulasi</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('komparasi') ?>" class="nav-link <?= $title == 'Komparasi' ? 'active' : ''; ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Komparasi</p>
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>

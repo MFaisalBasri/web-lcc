@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Interpretasi extends CI_Controller
+class Rekapitulasi extends CI_Controller
 {
 	public function __construct()
 	{
@@ -13,7 +13,7 @@ class Interpretasi extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Interpretasi';
+		$data['title'] = 'Rekapitulasi';
 		$data['user'] = $this->db->get_where('user', ['email' =>
 		$this->session->userdata('email')])->row_array();
 		$id = $data['user']['id'];
@@ -23,7 +23,7 @@ class Interpretasi extends CI_Controller
 
 		$this->load->view('user/headeruser', $data);
 		$this->load->view('user/sidebaruser', $data);
-		$this->load->view('user/interpretasi', $data);
+		$this->load->view('user/rekapitulasi', $data);
 		$this->load->view('user/footeruser');
 	}
 }

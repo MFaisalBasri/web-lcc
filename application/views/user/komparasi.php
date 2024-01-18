@@ -26,7 +26,7 @@
                                 <select name="skenarioDropdown1" id="skenarioDropdown1">
                                     <option value="" selected disabled>Pilih Skenario</option>
                                     <?php foreach ($skenario as $s) : ?>
-                                        <option value='<?= $s['deskripsi']; ?>'><?= $s['deskripsi']; ?></option>
+                                        <option value='<?= $s['skenario']; ?>'><?= $s['skenario']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                         </div>
@@ -35,7 +35,7 @@
                             <select name="skenarioDropdown2" id="skenarioDropdown2">
                                 <option value="" selected disabled>Pilih Skenario</option>
                                 <?php foreach ($skenario as $s) : ?>
-                                    <option value='<?= $s['deskripsi']; ?>'><?= $s['deskripsi']; ?></option>
+                                    <option value='<?= $s['skenario']; ?>'><?= $s['skenario']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -55,147 +55,127 @@
                             <?php if (!empty($pertanyaan['deskripsi'])) { ?>
                                 <?php foreach ($history as $row) : ?>
                                     <label><?= $row['skenario']; ?></label>
-                                    <div class="row g-3 align-items-center">
+                                    <div class="row d-flex  justify-content-center">
                                         <div class="col-md-8">
                                             <?php if (isset($row['jenis_skenario'])) { ?>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input1']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['lahan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input1']; ?><br> Rp <?= $row['lahan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input2']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['alsintan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input2']; ?><br> Rp <?= $row['alsintan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input3']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengadaan_bibit']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input3']; ?><br> Rp <?= $row['pengadaan_bibit']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input4']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['persiapan_lahan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input4']; ?><br> Rp <?= $row['persiapan_lahan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input5']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['penanaman']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input5']; ?><br> Rp <?= $row['penanaman']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input6']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['penyulaman']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input6']; ?><br> Rp <?= $row['penyulaman']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input7']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pemupukan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input7']; ?><br> Rp <?= $row['pemupukan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input8']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengendalian_opt']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input8']; ?><br> Rp <?= $row['pengendalian_opt']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input9']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pemangkasan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input9']; ?><br> Rp <?= $row['pemangkasan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input10']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pemanenan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input10']; ?><br> Rp <?= $row['pemanenan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input11']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['lahan_dan_bangunan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input11']; ?><br> Rp <?= $row['lahan_dan_bangunan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input12']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pembersihan_buah']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input12']; ?><br> Rp <?= $row['pembersihan_buah']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input13']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pulping']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input13']; ?><br> Rp <?= $row['pulping']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input14']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input14']; ?><br> Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input15']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input15']; ?><br> Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input16']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengeringan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input16']; ?><br> Rp <?= $row['pengeringan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input17']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['hulling']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input17']; ?><br> Rp <?= $row['hulling']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input18']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['sortasi_greenbean']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input18']; ?><br> Rp <?= $row['sortasi_greenbean']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan['input19']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengemasan']; ?>/kg greenbean </p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan['input19']; ?><br> Rp <?= $row['pengemasan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Total Biaya</h5>
-                                                        <p class="card-text">Rp <?= $row['total_biaya']; ?></p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;">Total Biaya<br> Rp <?= $row['total_biaya']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
                                             <?php } else { ?>
                                                 <p>Data tidak tersedia</p>
@@ -215,144 +195,124 @@
                                     <div class="row g-3 align-items-center">
                                         <div class="col-md-8">
                                             <?php if (isset($row['jenis_skenario'])) { ?>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input1']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['lahan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input1']; ?><br> Rp <?= $row['lahan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input2']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['alsintan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input2']; ?><br> Rp <?= $row['alsintan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input3']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengadaan_bibit']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input3']; ?><br> Rp <?= $row['pengadaan_bibit']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input4']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['persiapan_lahan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input4']; ?><br> Rp <?= $row['persiapan_lahan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class=" bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input5']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['penanaman']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input5']; ?><br> Rp <?= $row['penanaman']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input6']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['penyulaman']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input6']; ?><br> Rp <?= $row['penyulaman']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input7']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pemupukan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input7']; ?><br> Rp <?= $row['pemupukan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input8']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengendalian_opt']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input8']; ?><br> Rp <?= $row['pengendalian_opt']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input9']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pemangkasan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input9']; ?><br> Rp <?= $row['pemangkasan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input10']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pemanenan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input10']; ?><br> Rp <?= $row['pemanenan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input11']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['lahan_dan_bangunan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input11']; ?><br> Rp <?= $row['lahan_dan_bangunan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input12']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pembersihan_buah']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input12']; ?><br> Rp <?= $row['pembersihan_buah']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input13']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pulping']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input13']; ?><br> Rp <?= $row['pulping']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input14']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input14']; ?><br> Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input15']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input15']; ?><br> Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input16']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengeringan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input16']; ?><br> Rp <?= $row['pengeringan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input17']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['hulling']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input17']; ?><br> Rp <?= $row['hulling']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input18']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['sortasi_greenbean']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input18']; ?><br> Rp <?= $row['sortasi_greenbean']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title"><?= $pertanyaan2['input19']; ?></h5>
-                                                        <p class="card-text">Rp <?= $row['pengemasan']; ?>/kg greenbean</p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;"><?= $pertanyaan2['input19']; ?><br> Rp <?= $row['pengemasan']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex  justify-content-center"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:30px; margin-top:-12px;"></div>
-                                                <div class="card bg-primary">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Total Biaya</h5>
-                                                        <p class="card-text">Rp <?= $row['total_biaya']; ?></p>
-                                                    </div>
+                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <div class="d-flex  justify-content-center mb-1 p-2">
+                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                        <p style="color: black;">Total Biaya<br> Rp <?= $row['total_biaya']; ?>/kg greenbean</p>
+                                                    </span>
                                                 </div>
                                             <?php } else { ?>
                                                 <p>Data tidak tersedia</p>

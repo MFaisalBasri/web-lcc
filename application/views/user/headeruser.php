@@ -42,6 +42,7 @@
   <!-- <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet"> -->
   <!-- Calculator -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- datatables -->
 
   <style type="text/css">
     #exampleMaster_length select {
@@ -56,6 +57,57 @@
       border: 1px solid #ddd;
       border-radius: 5px;
       z-index: 1;
+    }
+
+    .tbl-container {
+      max-width: fit-content;
+      max-height: fit-content;
+    }
+
+    .tbl-fixed {
+      overflow-x: scroll;
+      overflow-y: scroll;
+      height: fit-content;
+      max-height: 70vh;
+      margin-top: 20px;
+    }
+
+    table {
+      min-width: sticky;
+      border-collapse: separate;
+    }
+
+    table th {
+      position: sticky;
+      top: 0px;
+      background-color: #ddd;
+    }
+
+    td:first-child,
+    th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2) {
+      position: sticky;
+      left: 30px;
+      z-index: 1;
+    }
+
+    td:nth-child(3),
+    th:nth-child(3) {
+      position: sticky;
+      left: 100px;
+      z-index: 1;
+    }
+
+    th:first-child,
+    th:nth-child(2),
+    th:nth-child(3) {
+      z-index: 3;
     }
   </style>
 </head>

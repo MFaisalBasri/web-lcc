@@ -15,7 +15,8 @@ class Komparasi extends CI_Controller
         $data['title'] = 'Komparasi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['skenario'] = $this->Rancangan_skenario->getAllRancanganSkenario();
+        $id = $data['user']['id'];
+        $data['skenario'] = $this->Hasil_skenario->getHasilById($id);
         $deskripsi1 = $this->input->post('skenarioDropdown1');
         $deskripsi2 = $this->input->post('skenarioDropdown2');
         $data['pertanyaan'] = $this->Rancangan_skenario->getSkenarioById($deskripsi1);

@@ -16,8 +16,7 @@ class inputdata extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['skenario'] = $this->Rancangan_skenario->getAllRancanganSkenario();
-        $deskripsi = $this->input->post('skenarioDropdown');
-        $data['pertanyaan'] = $this->Rancangan_skenario->getSkenarioById($deskripsi);
+        $data['pertanyaan'] = $this->Rancangan_skenario->getSkenarioById($this->input->post('skenarioDropdown'));
         $this->Hasil_skenario->tambahDataHasil();
 
         $this->load->view('user/headeruser', $data);
