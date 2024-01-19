@@ -130,24 +130,31 @@
                                                     </span>
                                                 </div>
                                                 <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;"><?= $pertanyaan['input13']; ?><br> Rp <?= $row['pulping']; ?>/kg greenbean</p>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;"><?= $pertanyaan['input14']; ?><br> Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;"><?= $pertanyaan['input15']; ?><br> Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php if ($pertanyaan['input13'] !== "x") : ?>
+                                                    <div class="d-flex  justify-content-center mb-1 p-2">
+                                                        <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                            <p style="color: black;"><?= $pertanyaan['input13']; ?><br> Rp <?= $row['pulping']; ?>/kg greenbean</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php endif; ?>
+
+                                                <?php if ($pertanyaan['input14'] !== "x") : ?>
+                                                    <div class="d-flex  justify-content-center mb-1 p-2">
+                                                        <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                            <p style="color: black;"><?= $pertanyaan['input14']; ?><br> Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php endif; ?>
+                                                <?php if ($pertanyaan['input15'] !== "x") : ?>
+                                                    <div class="d-flex  justify-content-center mb-1 p-2">
+                                                        <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                            <p style="color: black;"><?= $pertanyaan['input15']; ?><br> Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php endif; ?>
                                                 <div class="d-flex  justify-content-center mb-1 p-2">
                                                     <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
                                                         <p style="color: black;"><?= $pertanyaan['input16']; ?><br> Rp <?= $row['pengeringan']; ?>/kg greenbean</p>
@@ -172,10 +179,14 @@
                                                     </span>
                                                 </div>
                                                 <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;">Total Biaya<br> Rp <?= $row['total_biaya']; ?>/kg greenbean</p>
-                                                    </span>
+                                                <div class="d-flex justify-content-center mb-1 p-2">
+                                                    <div class="row">
+                                                        <div class="badge rounded-circle bg-primary text-wrap" style="width: 2rem; height:2rem;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <p style="color: black;">Kopi Arabika greenbean<br>LCC: Rp <?= $row['total_biaya']; ?>/kg greenbean</p>
                                                 </div>
                                             <?php } else { ?>
                                                 <p>Data tidak tersedia</p>
@@ -267,24 +278,31 @@
                                                     </span>
                                                 </div>
                                                 <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;"><?= $pertanyaan2['input13']; ?><br> Rp <?= $row['pulping']; ?>/kg greenbean</p>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;"><?= $pertanyaan2['input14']; ?><br> Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;"><?= $pertanyaan2['input15']; ?><br> Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
-                                                    </span>
-                                                </div>
-                                                <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php if ($pertanyaan2['input13'] !== "x") : ?>
+                                                    <div class="d-flex  justify-content-center mb-1 p-2">
+                                                        <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                            <p style="color: black;"><?= $pertanyaan2['input13']; ?><br> Rp <?= $row['pulping']; ?>/kg greenbean</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php endif; ?>
+
+                                                <?php if ($pertanyaan2['input14'] !== "x") : ?>
+                                                    <div class="d-flex  justify-content-center mb-1 p-2">
+                                                        <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                            <p style="color: black;"><?= $pertanyaan2['input14']; ?><br> Rp <?= $row['fermentasi']; ?>/kg greenbean</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php endif; ?>
+                                                <?php if ($pertanyaan2['input15'] !== "x") : ?>
+                                                    <div class="d-flex  justify-content-center mb-1 p-2">
+                                                        <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
+                                                            <p style="color: black;"><?= $pertanyaan2['input15']; ?><br> Rp <?= $row['pembersih_kopi_hs']; ?>/kg greenbean</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
+                                                <?php endif; ?>
                                                 <div class="d-flex  justify-content-center mb-1 p-2">
                                                     <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
                                                         <p style="color: black;"><?= $pertanyaan2['input16']; ?><br> Rp <?= $row['pengeringan']; ?>/kg greenbean</p>
@@ -309,10 +327,14 @@
                                                     </span>
                                                 </div>
                                                 <div class="d-flex  justify-content-around"><img src="<?php echo base_url(); ?>assets/dist/img/panah.png" alt="" style="width:20px; margin-top:-12px;"></div>
-                                                <div class="d-flex  justify-content-center mb-1 p-2">
-                                                    <span class="badge rounded-pill" style="max-width: 18rem; background-color:#c7efff;">
-                                                        <p style="color: black;">Total Biaya<br> Rp <?= $row['total_biaya']; ?>/kg greenbean</p>
-                                                    </span>
+                                                <div class="d-flex justify-content-center mb-1 p-2">
+                                                    <div class="row">
+                                                        <div class="badge rounded-circle bg-primary text-wrap" style="width: 2rem; height:2rem;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <p style="color: black;">Kopi Arabika greenbean<br>LCC: Rp <?= $row['total_biaya']; ?>/kg greenbean</p>
                                                 </div>
                                             <?php } else { ?>
                                                 <p>Data tidak tersedia</p>
