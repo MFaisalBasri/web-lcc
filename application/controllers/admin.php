@@ -10,6 +10,23 @@ class Admin extends CI_Controller
         is_logged_in();
     }
 
+    public function index()
+    {
+        $data['title'] = 'Dashboard Admin';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $id_user = $data['user']['id'];
+        $data['role'] = $data['user']['role_id'];
+        // $data['role'] = $this->UserModel->getRole($id_user);
+        $data['totalUser'] = $this->UserModel->getTotalUser();
+        $data['totalAdmin'] = $this->UserModel->getTotalAdmin();
+
+        $this->load->view('user/headeruser', $data);
+        $this->load->view('user/sidebaruser');
+        $this->load->view('admin/dashboard', $data);
+        $this->load->view('user/footeruser');
+    }
+
     public function role()
     {
         $data['title'] = 'Role';

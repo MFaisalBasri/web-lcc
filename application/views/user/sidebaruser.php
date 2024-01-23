@@ -14,8 +14,16 @@
         <!-- Menu khusus admin -->
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item text-primary">
-            <a href="<?= base_url('admin/viewAdmin') ?>" class="nav-link <?= $title == 'Data Admin' ? 'active' : ''; ?>">
+            <a href="<?= base_url('admin') ?>" class="nav-link <?= $title == 'Dashboard Admin' ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Dashboard Admin
+              </p>
+            </a>
+          </li>
+          <li class="nav-item text-primary">
+            <a href="<?= base_url('admin/viewAdmin') ?>" class="nav-link <?= $title == 'Data Admin' ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-fw fa-user"></i>
               <p>
                 Data Admin
               </p>
