@@ -40,6 +40,7 @@
                         <form action="" method="post">
                             <input type="text" name="id_skenario" value="<?= $pertanyaan['id_skenario']; ?>" hidden><br>
                             <input type="text" name="id_user" value="<?= $user['id']; ?>" hidden><br>
+                            <input type="text" name="nama_user" value="<?= $user['name']; ?>" hidden><br>
                             <input type="text" name="jenis_skenario" value="<?= $pertanyaan['skenario']; ?>"><br>
                             <input type="text" name="0" value="<?= $pertanyaan['deskripsi']; ?>" hidden><br>
                             <?php $totalValue = 0; ?>

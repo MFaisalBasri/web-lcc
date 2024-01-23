@@ -1,285 +1,241 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller{
+class Admin extends CI_Controller
+{
 
     public function __construct()
     {
         parent::__construct();
-        is_logged_in();  
-        }
-    
+        is_logged_in();
+    }
 
-
-    // public function index()
-    // {
-    //     $data['title'] = 'Menu';
-    //     $data['user'] = $this->db->get_where('user', ['email' => 
-    //     $this->session->userdata('email')])-> row_array();
-    //     $data['menu'] = $this->db->get('user_menu')->result_array();
-        
-    //     $this->load->view('user/headeruser',$data);
-    //     $this->load->view('user/sidebaradmin');
-    //     $this->load->view('admin/menu',$data);
-    //     $this->load->view('user/footeruser');
-    // }
-
-    public function menu()
+    public function role()
     {
-        $data['title'] = 'Menu Management';
-        $data['user'] = $this->db->get_where('user', ['email' => 
-        $this->session->userdata('email')])-> row_array();
-        $data['menu'] = $this->db->get('user_menu')->result_array();
+        $data['title'] = 'Role';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
 
-
-        $this->form_validation->set_rules('menu', 'Menu', 'required');
-        if($this->form_validation->run() == false) {
-        $this->load->view('user/headeruser',$data);
+        $data['role'] = $this->db->get('user_role')->result_array();
+        $this->load->view('user/headeruser', $data);
         $this->load->view('user/sidebaruser', $data);
-        $this->load->view('admin/menu',$data);
+        $this->load->view('admin/role', $data);
         $this->load->view('user/footeruser');
-        } else{
-            $this->db->insert('user_menu', ['menu'=>$this->input->post('menu')]);
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">New Menu Added!</div>');
-            redirect('admin/menu');
-
-        }
-
-    }
-    public function tambah_menu(){
-        $menu= $this->input->post('menu');
-        
-
-        $data = array(
-            'menu' => $menu,
-            
-        );
-      
-        $this->Menu_model->input_data($data, 'user_menu');
-        // $this->submenu_model->input_data($data2, 'user_menu');
-        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">New Menu Added!</div>');
-
-        redirect ('admin/menu');
     }
 
-    public function hapus_menu($id)
+    public function viewUser()
     {
-        $where = array ('id'=>$id);
-        $this->Menu_model->hapus_data($where, 'user_menu');
-        $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Menu Deleted!</div>');
-        redirect('admin/menu');
-    
-    }
-    public function edit_menu($id){
-        $where = array('id' =>$id);
-        // $data['subMenu']= $this->submenu_model->getSubMenu();
-        $data['menu'] = $this->db->get('user_menu')->result_array();
-        // $data['submenu2'] = $this->db->get('user_sub_menu')->result_array();
-        $data['siakad'] = $this->Menu_model->edit_data($where,'user_menu')->result();
-        $data['title'] = 'Edit Data';
-        $data['user'] = $this->db->get_where('user', ['email' => 
-        $this->session->userdata('email')])-> row_array();
-        $this->load->view('user/headeruser',$data);
+        $data['title'] = 'Data User';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['dataUser'] = $this->UserModel->getAllUser();
+
+        $this->load->view('user/headeruser', $data);
         $this->load->view('user/sidebaruser', $data);
-        $this->load->view('editMenu',$data);
+        $this->load->view('admin/dataUser', $data);
         $this->load->view('user/footeruser');
-
     }
-    public function update_menu(){
-        $id = $this->input->post('id');
-        $menu = $this->input->post('menu');
-     
+    public function viewAdmin()
+    {
+        $data['title'] = 'Data Admin';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['dataAdmin'] = $this->UserModel->getAllAdmin();
 
-        $data1 = array(
-            'menu' => $menu,
-            
-        );
-        
-        $where = array ('id '=>$id);
-        $this->Menu_model->update_data($where,$data1,'user_menu');
-        // $this->Menu_model->update_data($where,$data2,'user_menu');
-        redirect('admin/menu');
-            }
+        $this->load->view('user/headeruser', $data);
+        $this->load->view('user/sidebaruser', $data);
+        $this->load->view('admin/dataAdmin', $data);
+        $this->load->view('user/footeruser');
+    }
 
-        public function submenu()
-        {
-        $data['title'] = 'Sub Menu Management';
-        $data['user'] = $this->db->get_where('user', ['email' => 
-        $this->session->userdata('email')])-> row_array();
-        $this->load->model('submenu_model');
+    public function editAdmin($id)
+    {
 
-        $data['subMenu']= $this->submenu_model->getSubMenu();
-        $data['menu'] = $this->db->get('user_menu')->result_array();
-        $data['submenu2'] = $this->db->get('user_sub_menu')->result_array();
-        // $data['menu'] = $this->db->get('user_menu')->result_array();
+        $data['title'] = 'Edit User';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['editUser'] = $this->UserModel->getUserById($id);
 
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('menu_id', 'Menu', 'required');
-        $this->form_validation->set_rules('url', 'URL', 'required');
-        $this->form_validation->set_rules('icon', 'Icon', 'required');
-       
+        $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required|trim');
 
-        if($this->form_validation->run()==false) {
-
-            $this->load->view('user/headeruser',$data);
+        if ($this->form_validation->run() == false) {
+            $this->load->view('user/headeruser', $data);
             $this->load->view('user/sidebaruser', $data);
-            $this->load->view('admin/submenu',$data);
+            $this->load->view('admin/editAdmin', $data);
             $this->load->view('user/footeruser');
-        } else{
-            $data =[
-                'title'=> $this->input->post('title'),
-                'menu_id'=> $this->input->post('menu_id'),
-                'url'=> $this->input->post('url'),
-                'icon' => $this->input->post('icon'),
-                // 'is_active' => $this->input->post('is_active')
-            ];
-            $this->db->insert('user_sub_menu', $data);
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">New Sub Menu Added!</div>');
-            redirect('submenu');
-        }
-    }
-    public function tambah_submenu(){
-        $title= $this->input->post('title');
-        $menu_id= $this->input->post('menu_id');
-        $url= $this->input->post('url');
-        $icon = $this->input->post('icon');
-        $urutan = $this->input->post('urutan');
-        // $is_active= $this->input->post('is_active');
+        } else {
+            $name = $this->input->post('name');
+            $email = $this->input->post('email');
+            $lokasi = $this->input->post('lokasi');
+            $role_id = $this->input->post('role_id');
+            $is_active = $this->input->post('is_active');
 
-        $data = array(
-            'title' => $title,
-            'menu_id' => $menu_id,
-            'url' =>$url,
-            'icon' =>$icon,
-            'urutan' => $urutan,
-            // 'is_active'=> $is_active,
-        );
-      
-        $this->submenu_model->input_data($data, 'user_sub_menu');
-        // $this->submenu_model->input_data($data2, 'user_menu');
-        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">New Sub Menu Added!</div>');
+            //cek apakah ada gambar
 
-        redirect ('admin/submenu');
-    }
+            $upload_image = $_FILES['image']['name'];
 
-    public function hapus_submenu($id)
-    {
-        $where = array ('id'=>$id);
-        $this->submenu_model->hapus_data($where, 'user_sub_menu');
-        $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Sub menu Deleted!</div>');
-        redirect('admin/submenu');
-    
-    }
-    public function edit_submenu($id){
-        $where = array('id' =>$id);
-        $data['subMenu']= $this->submenu_model->getSubMenu();
-        $data['menu'] = $this->db->get('user_menu')->result_array();
-        $data['submenu2'] = $this->db->get('user_sub_menu')->result_array();
-        $data['siakad'] = $this->submenu_model->edit_data($where,'user_sub_menu')->result();
-        $data['title'] = 'Edit Data';
-        $data['user'] = $this->db->get_where('user', ['email' => 
-        $this->session->userdata('email')])-> row_array();
-        $this->load->view('user/headeruser',$data);
-        $this->load->view('user/sidebaruser', $data);
-        $this->load->view('edit',$data);
-        $this->load->view('user/footeruser');
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './assets/dist/img/';
 
-    }
-    public function update_submenu(){
-        $id = $this->input->post('id');
-        $title= $this->input->post('title');
-        $menu_id= $this->input->post('menu_id');
-        $url= $this->input->post('url');
-        $icon = $this->input->post('icon');
-        $urutan = $this->input->post('urutan');
-        // $is_active= $this->input->post('is_active');
+                $this->load->library('upload', $config);
 
-        $data1 = array(
-            'title' => $title,
-            'menu_id' => $menu_id,
-            'url' =>$url,
-            'icon' =>$icon,
-            'urutan' =>$urutan,
-            // 'is_active'=> $is_active,
-        );
-        
-        $where = array ('id '=>$id);
-        $this->Menu_model->update_data($where,$data1,'user_sub_menu');
-        // $this->Menu_model->update_data($where,$data2,'user_menu');
-        redirect('admin/submenu');
-            }
-
-        public function role()
-        {
-            $data['title'] = 'Role';
-            $data['user'] = $this->db->get_where('user', ['email' => 
-            $this->session->userdata('email')])-> row_array();
-
-            $data['role'] = $this->db->get('user_role')->result_array();
-
-            $this->load->view('user/headeruser',$data);
-            $this->load->view('user/sidebaruser',$data);
-            $this->load->view('admin/role',$data);
-            $this->load->view('user/footeruser');
-
-
-        }
-
-        public function list_akses(){
-
-            
-            // $data['title'] = 'Role';
-         
-            $data['title'] = 'List User';
-            $data['user'] = $this->db->get_where('user', ['email' => 
-            $this->session->userdata('email')])-> row_array();
-            
-            $data['daftar'] = $this->materialmod->daftar_user()->result();
-
-            $this->load->view('user/headeruser',$data);
-            $this->load->view('user/sidebaruser',$data);
-            $this->load->view('admin/list_akses',$data);
-            $this->load->view('user/footeruser');
-        }
-
-        public function roleAccess($role_id)
-        {
-            $data['title'] = 'Role Access';
-            $data['user'] = $this->db->get_where('user', ['email' => 
-            $this->session->userdata('email')])-> row_array();
-
-            $data['role'] = $this->db->get_where('user_role',['id'=>$role_id])->row_array();
-            $this->db->where ('id!=',1);
-            $data['menu'] = $this->db->get('user_menu')->result_array();
-
-            $this->load->view('user/headeruser',$data);
-            $this->load->view('user/sidebaruser',$data);
-            $this->load->view('admin/roleaccess',$data);
-            $this->load->view('user/footeruser');
-
-
-        }
-
-        public function changeaccess() {
-
-            $menu_id = $this->input->post('menuId');
-            $role_id = $this->input->post('roleId');
-
-            $data = [
-                'role_id' =>$role_id,
-                'menu_id' => $menu_id
-            ];
-
-            $result = $this->db->get_where('user_access_menu', $data);
-
-            if($result->num_rows()<1) {
-                $this->db->insert('user_access_menu',$data);
-            } else {
-                $this->db->delete('user_access_menu', $data);
+                if ($this->upload->do_upload('image')) {
+                    $new_image = $this->upload->data('file_name');
+                    $this->db->set('image', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
                 }
+            }
 
-                $this->session->set_flashdata('message','<div class="alert alert-success"
-                role="alert"> Access Changed!</div>');
+            $this->db->set('name', $name);
+            $this->db->set('lokasi', $lokasi);
+            $this->db->set('role_id', $role_id);
+            $this->db->set('is_active', $is_active);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your Profile
+        has been updated!</div>');
+            redirect('admin/viewAdmin');
+        }
+    }
+
+    public function editUser($id)
+    {
+
+        $data['title'] = 'Edit User';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['editUser'] = $this->UserModel->getUserById($id);
+
+        $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('user/headeruser', $data);
+            $this->load->view('user/sidebaruser', $data);
+            $this->load->view('admin/editUser', $data);
+            $this->load->view('user/footeruser');
+        } else {
+            $name = $this->input->post('name');
+            $email = $this->input->post('email');
+            $lokasi = $this->input->post('lokasi');
+            $role_id = $this->input->post('role_id');
+            $is_active = $this->input->post('is_active');
+
+            //cek apakah ada gambar
+
+            $upload_image = $_FILES['image']['name'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './assets/dist/img/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('image')) {
+                    $new_image = $this->upload->data('file_name');
+                    $this->db->set('image', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+
+            $this->db->set('name', $name);
+            $this->db->set('lokasi', $lokasi);
+            $this->db->set('role_id', $role_id);
+            $this->db->set('is_active', $is_active);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your Profile
+        has been updated!</div>');
+            redirect('admin/viewUser');
+        }
+    }
+
+    public function skenarioUser()
+    {
+        $data['title'] = 'Skenario User';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['skenarioUser'] = $this->Hasil_skenario->getAllHasilSkenario();
+
+        $this->load->view('user/headeruser', $data);
+        $this->load->view('user/sidebaruser', $data);
+        $this->load->view('admin/skenarioUser', $data);
+        $this->load->view('user/footeruser');
+    }
+
+    public function ubahPassword()
+    {
+
+        $data['title'] = 'Change Password';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
+        $this->form_validation->set_rules('new_password2', 'Confirm New Password', 'required|trim|min_length[3]|matches[new_password1]');
+
+
+
+        if ($this->form_validation->run() == false) {
+
+            $this->load->view('user/headeruser', $data);
+            $this->load->view('user/sidebaruser', $data);
+            $this->load->view('admin/editUser', $data);
+            $this->load->view('user/footeruser');
+        } else {
+            $new_password = $this->input->post('new_password1');
+            if ($new_password === '') {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">New Password cannot be empty!</div>');
+                redirect('admin/viewUser');
+            } else {
+
+                //password sudah ok
+                $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                $this->db->set('password', $password_hash);
+                $this->db->where('id',   $this->input->post('id'));
+                $this->db->update('user');
+
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Password Changed</div>');
+                redirect('admin/viewUser');
             }
         }
-        
+    }
+
+    public function editSkenario($id_skenario)
+    {
+        $data['title'] = 'Edit Data';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $id = $data['user']['id'];
+        $data['history'] = $this->Hasil_skenario->getHasilByIdSkenario($id_skenario, $id);
+
+        $this->form_validation->set_rules('skenario', 'skenario', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('user/headeruser', $data);
+            $this->load->view('user/sidebaruser');
+            $this->load->view('admin/editSkenario', $data);
+            $this->load->view('user/footeruser');
+        } else {
+            $this->Hasil_skenario->ubahDataHistory();
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data Skenario
+        has been Update!</div>');
+            redirect('admin/skenarioUser');
+        }
+    }
+    public function hapusSkenario($kode_skenario)
+    {
+        $this->Hasil_skenario->hapusDataSkenario($kode_skenario);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data Skenario
+        has been delete!</div>');
+        redirect('admin/skenarioUser');
+    }
+}

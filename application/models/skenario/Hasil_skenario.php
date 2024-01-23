@@ -40,6 +40,7 @@ class Hasil_skenario extends CI_model
                     "kode_skenario" => "",
                     "id_skenario" => $this->input->post('id_skenario', true),
                     "id_user" => $this->input->post('id_user', true),
+                    "nama" => $this->input->post('nama_user', true),
                     "jenis_skenario" => $this->input->post('jenis_skenario', true),
                     "skenario" => $this->input->post('0', true),
                     "lahan" => $this->input->post('1', true),

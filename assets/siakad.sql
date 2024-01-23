@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306:3306
--- Waktu pembuatan: 15 Jan 2024 pada 10.16
+-- Waktu pembuatan: 23 Jan 2024 pada 05.01
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -45,14 +45,14 @@ INSERT INTO `bagan_skenario` (`id`, `nama`, `deskripsi`) VALUES
 (5, 'Skenario 5', 'Intensif - Manual - Semi-dry process - Kopi greenbean'),
 (6, 'Skenario 6', 'Intensif - Manual- Dry process - Kopi greenbean'),
 (7, 'Skenario 7', 'Intensif - Mekanis - Wet process - Kopi greenbean'),
-(15, 'Skenario 8', 'Intensif - Mekanis - Semi-dry process - kopi greenbean'),
-(16, 'Skenario 9', 'Intensif - Mekanis - Dry process - Kopi greenbean'),
-(17, 'Skenario 10', 'Organik - Manual - Wet process - Kopi greenbean'),
-(18, 'Skenario 11', 'Organik - Manual - Semi-dry process - Kopi greenbean'),
-(19, 'Skenario 12', 'Organik - Manual - Dry process - Kopi greenbean'),
-(20, 'Skenario 13', 'Organik - Mekanis - Wet process - Kopi greenbean'),
-(21, 'Skenario 14', 'Organik - Mekanis - Semi-dry process - Kopi greenbean'),
-(22, 'Skenario 15', 'Organik - Mekanis - Dry process - Kopi greenbean');
+(8, 'Skenario 8', 'Intensif - Mekanis - Semi-dry process - kopi greenbean'),
+(9, 'Skenario 9', 'Intensif - Mekanis - Dry process - Kopi greenbean'),
+(10, 'Skenario 10', 'Organik - Manual - Wet process - Kopi greenbean'),
+(11, 'Skenario 11', 'Organik - Manual - Semi-dry process - Kopi greenbean'),
+(12, 'Skenario 12', 'Organik - Manual - Dry process - Kopi greenbean'),
+(13, 'Skenario 13', 'Organik - Mekanis - Wet process - Kopi greenbean'),
+(14, 'Skenario 14', 'Organik - Mekanis - Semi-dry process - Kopi greenbean'),
+(15, 'Skenario 15', 'Organik - Mekanis - Dry process - Kopi greenbean');
 
 -- --------------------------------------------------------
 
@@ -64,8 +64,9 @@ CREATE TABLE `hasil_skenario` (
   `kode_skenario` int(11) NOT NULL,
   `id_skenario` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `nama` varchar(30) NOT NULL,
   `jenis_skenario` varchar(20) NOT NULL,
-  `skenario` varchar(30) NOT NULL,
+  `skenario` varchar(60) NOT NULL,
   `lahan` int(10) DEFAULT NULL,
   `alsintan` int(10) DEFAULT NULL,
   `pengadaan_bibit` int(10) NOT NULL,
@@ -92,23 +93,12 @@ CREATE TABLE `hasil_skenario` (
 -- Dumping data untuk tabel `hasil_skenario`
 --
 
-INSERT INTO `hasil_skenario` (`kode_skenario`, `id_skenario`, `id_user`, `jenis_skenario`, `skenario`, `lahan`, `alsintan`, `pengadaan_bibit`, `persiapan_lahan`, `penanaman`, `penyulaman`, `pemupukan`, `pengendalian_opt`, `pemangkasan`, `pemanenan`, `lahan_dan_bangunan`, `pembersihan_buah`, `pulping`, `fermentasi`, `pembersih_kopi_hs`, `pengeringan`, `hulling`, `sortasi_greenbean`, `pengemasan`, `total_biaya`) VALUES
-(32, 1, 24, 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 2000, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2005),
-(33, 2, 24, 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Pr', 0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2002),
-(34, 3, 24, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 2000, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2003),
-(35, 15, 24, 'Skenario 15', 'Organik, Mekanis, Dry Process', 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12),
-(41, 3, 24, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5),
-(44, 1, 23, 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3),
-(45, 12, 23, 'Skenario 12', 'Organik, Manual, Dry Process', 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3),
-(46, 11, 20, 'Skenario 11', 'Organik, Manual, Semi-dry Proc', 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 30),
-(49, 8, 20, 'Skenario 8', 'Intensif, Mekanis, Semi-dry Pr', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15),
-(50, 7, 23, 'Skenario 7', 'Intensif, Mekanis, Wet Process', 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7),
-(52, 5, 23, 'Skenario 5', 'Intensif, Manual, Semi-dry Pro', 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4),
-(53, 8, 23, 'Skenario 8', 'Intensif, Mekanis, Semi-dry Pr', 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8),
-(55, 3, 23, 'Skenario 3', 'Intensif, Kimiawi, Dry Process', 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8),
-(56, 2, 23, 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Pr', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
-(57, 4, 23, 'Skenario 4', 'Intensif, Manual, Wet Process', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5),
-(58, 9, 20, 'Skenario 9', 'Intensif, Mekanis, Dry Process', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6);
+INSERT INTO `hasil_skenario` (`kode_skenario`, `id_skenario`, `id_user`, `nama`, `jenis_skenario`, `skenario`, `lahan`, `alsintan`, `pengadaan_bibit`, `persiapan_lahan`, `penanaman`, `penyulaman`, `pemupukan`, `pengendalian_opt`, `pemangkasan`, `pemanenan`, `lahan_dan_bangunan`, `pembersihan_buah`, `pulping`, `fermentasi`, `pembersih_kopi_hs`, `pengeringan`, `hulling`, `sortasi_greenbean`, `pengemasan`, `total_biaya`) VALUES
+(73, 5, 23, 'Aditya', 'Skenario 5', 'Intensif, Manual, Semi-dry Process', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0, 0, 14, 15, 16, 17, 153),
+(74, 6, 23, 'Aditya', 'Skenario 6', 'Intensif, Manual, Dry Process', 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 0, 0, 0, 4, 3, 2, 1, 136),
+(82, 1, 23, 'set', 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 1, 500, 500, 500, 500, 500, 6, 500, 500, 500, 500, 500, 500, 5005, 500, 500, 500, 500, 500, 13012),
+(83, 2, 22, 'set', 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Process', 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 170),
+(90, 4, 20, 'faisal', 'Skenario 4', 'Intensif, Manual, Wet Process', 4, 5, 8, 7, 9, 0, 5, 6, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 59);
 
 -- --------------------------------------------------------
 
@@ -186,11 +176,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `lokasi`, `nama_gh`) VALUES
-(20, 'faisal', 'faisal@gmail.com', 'avatar3.png', '$2y$10$jJGy87DeppWZEDIaQvWAeuEzmT7wzAWmIKJb8ikrf1OTmb9LVTQM6', 2, 1, 1704514865, 'Jakarta', 'faisal'),
-(21, 'bank-sampah', 'Internets420@gmail.com', 'avatar3.png', '$2y$10$uSs//JW32neq3TvR6KJBYecl3kvduA/8gomdC4gt38SmBvRkoof9e', 2, 1, 1704722143, 'jak', 'al'),
-(22, 'set', 'edrick@gmail.com', 'avatar3.png', '$2y$10$yWygr/HY6duHwSYVxkbtj.5WngqEE4rs2SyzblDItxjyp4KKwEYTC', 2, 1, 1704722301, 'Bekasi', 'faisal'),
-(23, 'Aditya', 'admin@gmail.com', 'avatar3.png', '$2y$10$ZuU7YNiM3cCLrqYPW5g3aeZJhQRe80p2oFIB39fOOebhVrlwsPGRK', 2, 1, 1704807562, 'Lampung', 'adit'),
-(24, 'img', 'internets@gmail.com', 'avatar3.png', '$2y$10$LUvGo2cI/VMq/03cV4m1nOUCwo0IEsZT7tumE8TTLkl4ZZynojK0C', 2, 1, 1705232827, 'Bekasi', 'adit');
+(20, 'faisal', 'faisal@gmail.com', 'avatar3.png', '$2y$10$Et4hRwkHROc9fU0zHGTNmOpz9NUAyQSEcIEuuY8R8B.nR1EqHpkpm', 2, 1, 1704514865, 'Jakarta', 'faisal'),
+(21, 'bank-sampah', 'Internets420@gmail.com', 'avatar3.png', '$2y$10$uSs//JW32neq3TvR6KJBYecl3kvduA/8gomdC4gt38SmBvRkoof9e', 2, 1, 1704722143, 'Jakarta', 'al'),
+(22, 'edrikct', 'edrick@gmail.com', 'avatar3.png', '$2y$10$yWygr/HY6duHwSYVxkbtj.5WngqEE4rs2SyzblDItxjyp4KKwEYTC', 2, 1, 1704722301, 'Bekasi', 'faisal'),
+(23, 'Adityal', 'admin@gmail.com', 'avatar3.png', '$2y$10$xRQpcAzQ3bYycXCaAE4qzOL2gNkphb23aooNod/3poPYB5o8guv2q', 1, 1, 1704807562, 'Lampung baru', 'adit'),
+(25, 'img', 'internets@gmail.com', 'avatar3.png', '$2y$10$ZG2wq6wmxkBszXUnmOcgoOTklvNoYy5CSu7AoxrN/H1ceD2GH97.a', 1, 1, 1705232827, 'Beka', 'adit');
 
 -- --------------------------------------------------------
 
@@ -250,55 +240,6 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'ADMINISTRATOR'),
 (2, 'USER');
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_sub_menu`
---
-
-CREATE TABLE `user_sub_menu` (
-  `id` int(11) NOT NULL,
-  `menu_id` int(11) DEFAULT NULL,
-  `title` varchar(128) DEFAULT NULL,
-  `url` varchar(128) DEFAULT NULL,
-  `icon` varchar(128) DEFAULT NULL,
-  `class` varchar(50) NOT NULL,
-  `group_menu` int(5) NOT NULL DEFAULT 0,
-  `is_active` int(11) DEFAULT NULL,
-  `urutan` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `user_sub_menu`
---
-
-INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `class`, `group_menu`, `is_active`, `urutan`) VALUES
-(2, 2, 'My Profile', 'myprofile', 'fas fa-fw fa-user', '', 0, 1, 2),
-(8, 1, 'Menu Management', 'admin/menu', 'fa-solid fa-folder', '', 0, 1, 2),
-(9, 1, 'Sub Menu Management', 'admin/submenu', 'fa-solid fa-folder-open', '', 0, 1, 3),
-(24, 2, 'Interpretasi', 'interpretasi', 'fas fa-fw fa-chart-line', '', 0, 1, 9),
-(35, 2, 'Dashboard', 'dashboard', 'fas fa-fw fa-tachometer-alt', '', 0, 1, 1),
-(40, 1, 'Role', 'admin/role', 'fa solid fa-user-tie', '', 0, 1, 1),
-(59, 2, 'Tambah Data', 'lci', NULL, '', 0, 1, 5),
-(60, 2, 'Data History', 'datahistory', NULL, 'disable-link', 0, 1, 6),
-(61, 2, 'Skenario Usaha', 'skenario', NULL, '', 0, 1, 4);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_sub_sub_menu`
---
-
-CREATE TABLE `user_sub_sub_menu` (
-  `id` int(5) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `group_menu` int(5) NOT NULL,
-  `title` varchar(30) NOT NULL,
-  `url` varchar(50) NOT NULL,
-  `urutan` int(11) NOT NULL,
-  `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- Indexes for dumped tables
 --
@@ -313,7 +254,9 @@ ALTER TABLE `bagan_skenario`
 -- Indeks untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  ADD PRIMARY KEY (`kode_skenario`);
+  ADD PRIMARY KEY (`kode_skenario`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_skenario` (`id_skenario`);
 
 --
 -- Indeks untuk tabel `rancangan_skenario`
@@ -350,20 +293,6 @@ ALTER TABLE `user_role`
   ADD KEY `role` (`role`);
 
 --
--- Indeks untuk tabel `user_sub_menu`
---
-ALTER TABLE `user_sub_menu`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `menu_id` (`menu_id`);
-
---
--- Indeks untuk tabel `user_sub_sub_menu`
---
-ALTER TABLE `user_sub_sub_menu`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `userId` (`userId`);
-
---
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -377,13 +306,13 @@ ALTER TABLE `bagan_skenario`
 -- AUTO_INCREMENT untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
@@ -404,20 +333,15 @@ ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menu`
---
-ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
-
---
--- AUTO_INCREMENT untuk tabel `user_sub_sub_menu`
---
-ALTER TABLE `user_sub_sub_menu`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
-
---
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `hasil_skenario`
+--
+ALTER TABLE `hasil_skenario`
+  ADD CONSTRAINT `hasil_skenario_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hasil_skenario_ibfk_2` FOREIGN KEY (`id_skenario`) REFERENCES `bagan_skenario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `user`
@@ -431,18 +355,6 @@ ALTER TABLE `user`
 ALTER TABLE `user_access_menu`
   ADD CONSTRAINT `menu` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`),
   ADD CONSTRAINT `role menu` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`);
-
---
--- Ketidakleluasaan untuk tabel `user_sub_menu`
---
-ALTER TABLE `user_sub_menu`
-  ADD CONSTRAINT `user_sub_menu_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`);
-
---
--- Ketidakleluasaan untuk tabel `user_sub_sub_menu`
---
-ALTER TABLE `user_sub_sub_menu`
-  ADD CONSTRAINT `user_sub_sub_menu_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
