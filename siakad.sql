@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306:3306
--- Waktu pembuatan: 23 Jan 2024 pada 05.01
+-- Waktu pembuatan: 23 Jan 2024 pada 17.39
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -89,17 +89,6 @@ CREATE TABLE `hasil_skenario` (
   `total_biaya` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `hasil_skenario`
---
-
-INSERT INTO `hasil_skenario` (`kode_skenario`, `id_skenario`, `id_user`, `nama`, `jenis_skenario`, `skenario`, `lahan`, `alsintan`, `pengadaan_bibit`, `persiapan_lahan`, `penanaman`, `penyulaman`, `pemupukan`, `pengendalian_opt`, `pemangkasan`, `pemanenan`, `lahan_dan_bangunan`, `pembersihan_buah`, `pulping`, `fermentasi`, `pembersih_kopi_hs`, `pengeringan`, `hulling`, `sortasi_greenbean`, `pengemasan`, `total_biaya`) VALUES
-(73, 5, 23, 'Aditya', 'Skenario 5', 'Intensif, Manual, Semi-dry Process', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0, 0, 14, 15, 16, 17, 153),
-(74, 6, 23, 'Aditya', 'Skenario 6', 'Intensif, Manual, Dry Process', 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 0, 0, 0, 4, 3, 2, 1, 136),
-(82, 1, 23, 'set', 'Skenario 1', 'Intensif, Kimiawi, Wet Process', 1, 500, 500, 500, 500, 500, 6, 500, 500, 500, 500, 500, 500, 5005, 500, 500, 500, 500, 500, 13012),
-(83, 2, 22, 'set', 'Skenario 2', 'Intensif, Kimiawi, Semi-dry Process', 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 170),
-(90, 4, 20, 'faisal', 'Skenario 4', 'Intensif, Manual, Wet Process', 4, 5, 8, 7, 9, 0, 5, 6, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 59);
-
 -- --------------------------------------------------------
 
 --
@@ -170,17 +159,6 @@ CREATE TABLE `user` (
   `lokasi` varchar(255) DEFAULT NULL,
   `nama_gh` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `user`
---
-
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `lokasi`, `nama_gh`) VALUES
-(20, 'faisal', 'faisal@gmail.com', 'avatar3.png', '$2y$10$Et4hRwkHROc9fU0zHGTNmOpz9NUAyQSEcIEuuY8R8B.nR1EqHpkpm', 2, 1, 1704514865, 'Jakarta', 'faisal'),
-(21, 'bank-sampah', 'Internets420@gmail.com', 'avatar3.png', '$2y$10$uSs//JW32neq3TvR6KJBYecl3kvduA/8gomdC4gt38SmBvRkoof9e', 2, 1, 1704722143, 'Jakarta', 'al'),
-(22, 'edrikct', 'edrick@gmail.com', 'avatar3.png', '$2y$10$yWygr/HY6duHwSYVxkbtj.5WngqEE4rs2SyzblDItxjyp4KKwEYTC', 2, 1, 1704722301, 'Bekasi', 'faisal'),
-(23, 'Adityal', 'admin@gmail.com', 'avatar3.png', '$2y$10$xRQpcAzQ3bYycXCaAE4qzOL2gNkphb23aooNod/3poPYB5o8guv2q', 1, 1, 1704807562, 'Lampung baru', 'adit'),
-(25, 'img', 'internets@gmail.com', 'avatar3.png', '$2y$10$ZG2wq6wmxkBszXUnmOcgoOTklvNoYy5CSu7AoxrN/H1ceD2GH97.a', 1, 1, 1705232827, 'Beka', 'adit');
 
 -- --------------------------------------------------------
 
@@ -312,7 +290,7 @@ ALTER TABLE `hasil_skenario`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`

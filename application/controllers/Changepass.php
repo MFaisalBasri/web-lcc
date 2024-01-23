@@ -25,7 +25,7 @@ class Changepass extends CI_Controller
         } else {
             $current_password = $this->input->post('current_password');
             $new_password = $this->input->post('new_password1');
-            if (!password_verify($current_password, $data['user']['password'])) {
+            if ($current_password !== $data['user']['password']) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
             Wrong current Password!</div>');
                 redirect('myprofile');
@@ -37,9 +37,9 @@ class Changepass extends CI_Controller
                 } else {
 
                     //password sudah ok
-                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                    // $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
-                    $this->db->set('password', $password_hash);
+                    $this->db->set('password', $new_password);
                     $this->db->where('email', $this->session->userdata('email'));
                     $this->db->update('user');
 

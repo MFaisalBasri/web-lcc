@@ -214,9 +214,46 @@ class Admin extends CI_Controller
             } else {
 
                 //password sudah ok
-                $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                // $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
-                $this->db->set('password', $password_hash);
+                $this->db->set('password', $new_password);
+                $this->db->where('id',   $this->input->post('id'));
+                $this->db->update('user');
+
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Password Changed</div>');
+                redirect('admin/viewAdmin');
+            }
+        }
+    }
+    public function ubahPasswordUser()
+    {
+
+        $data['title'] = 'Change Password';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
+        $this->form_validation->set_rules('new_password2', 'Confirm New Password', 'required|trim|min_length[3]|matches[new_password1]');
+
+
+
+        if ($this->form_validation->run() == false) {
+
+            $this->load->view('user/headeruser', $data);
+            $this->load->view('user/sidebaruser', $data);
+            $this->load->view('admin/editUser', $data);
+            $this->load->view('user/footeruser');
+        } else {
+            $new_password = $this->input->post('new_password1');
+            if ($new_password === '') {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">New Password cannot be empty!</div>');
+                redirect('admin/viewUser');
+            } else {
+
+                //password sudah ok
+                // $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                $this->db->set('password', $new_password);
                 $this->db->where('id',   $this->input->post('id'));
                 $this->db->update('user');
 
@@ -254,5 +291,21 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data Skenario
         has been delete!</div>');
         redirect('admin/skenarioUser');
+    }
+
+    public function hapusUser($id)
+    {
+        $this->db->delete('user', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data User
+        has been delete!</div>');
+        redirect('admin/viewUser');
+    }
+
+    public function hapusAdmin($id)
+    {
+        $this->db->delete('user', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data User
+        has been delete!</div>');
+        redirect('admin/viewAdmin');
     }
 }

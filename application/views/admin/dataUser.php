@@ -31,7 +31,7 @@
                                         <td><?= $user['lokasi']; ?></td>
                                         <td>
                                             <a href="<?php echo base_url('admin/editUser/' . $user['id']); ?>"><span class="badge bg-warning">Edit</span></a>
-                                            <a href="<?php echo base_url('admin/hapusSkenario/' . $user['id']); ?>"><span class="badge bg-danger">Clear</span></a>
+                                            <a href="<?php echo base_url('admin/hapusUser/' . $user['id']); ?>"><span class="badge bg-danger">Clear</span></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
