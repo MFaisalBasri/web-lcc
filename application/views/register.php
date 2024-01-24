@@ -18,11 +18,6 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="nama_gh" placeholder="Nama" name="nama_gh" value="<?php echo set_value('nama_gh'); ?>">
-                                <?php echo form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-
-                            <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="lokasi" placeholder="Lokasi" name="lokasi" value="<?php echo set_value('lokasi'); ?>">
                                 <?php echo form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>

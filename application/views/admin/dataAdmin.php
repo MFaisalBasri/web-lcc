@@ -2,7 +2,7 @@
     <section class="content">
         <div class="card-body">
             <div>
-                <h2>Data User</h2>
+                <h2>Data Admin</h2>
                 <?= $this->session->flashdata('message'); ?>
                 <div class="container tbl-container" style="overflow-x:auto;">
                     <div class="row tbl-fixed">

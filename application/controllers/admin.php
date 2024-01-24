@@ -68,7 +68,7 @@ class Admin extends CI_Controller
     public function editAdmin($id)
     {
 
-        $data['title'] = 'Edit User';
+        $data['title'] = 'Edit Profile Admin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['editUser'] = $this->UserModel->getUserById($id);
@@ -85,8 +85,6 @@ class Admin extends CI_Controller
             $name = $this->input->post('name');
             $email = $this->input->post('email');
             $lokasi = $this->input->post('lokasi');
-            $role_id = $this->input->post('role_id');
-            $is_active = $this->input->post('is_active');
 
             //cek apakah ada gambar
 
@@ -109,13 +107,12 @@ class Admin extends CI_Controller
 
             $this->db->set('name', $name);
             $this->db->set('lokasi', $lokasi);
-            $this->db->set('role_id', $role_id);
-            $this->db->set('is_active', $is_active);
             $this->db->where('email', $email);
             $this->db->update('user');
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Your Profile
         has been updated!</div>');
+            // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
             redirect('admin/viewAdmin');
         }
     }
@@ -269,7 +266,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $id = $data['user']['id'];
-        $data['history'] = $this->Hasil_skenario->getHasilByIdSkenario($id_skenario, $id);
+        $data['history'] = $this->Hasil_skenario->getHasilByKode($id_skenario);
 
         $this->form_validation->set_rules('skenario', 'skenario', 'required');
 

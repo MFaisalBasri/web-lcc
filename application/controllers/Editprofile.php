@@ -15,7 +15,6 @@ class Editprofile extends CI_Controller
 
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required|trim');
-        $this->form_validation->set_rules('nama_gh', 'Nama Greenhouse', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('user/headeruser', $data);
@@ -26,7 +25,6 @@ class Editprofile extends CI_Controller
             $name = $this->input->post('name');
             $email = $this->input->post('email');
             $lokasi = $this->input->post('lokasi');
-            $nama_gh = $this->input->post('nama_gh');
 
             //cek apakah ada gambar
 
@@ -49,7 +47,6 @@ class Editprofile extends CI_Controller
 
             $this->db->set('name', $name);
             $this->db->set('lokasi', $lokasi);
-            $this->db->set('nama_gh', $nama_gh);
             $this->db->where('email', $email);
             $this->db->update('user');
 

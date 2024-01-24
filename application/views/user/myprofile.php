@@ -43,9 +43,6 @@
                       <b>Email</b> <a class="float-right"><?= $user['email']; ?></a>
                     </li>
                     <li class="list-group-item">
-                      <b>Nama</b> <a class="float-right"><?= $user['nama_gh']; ?></a>
-                    </li>
-                    <li class="list-group-item">
                       <b>Lokasi</b> <a class="float-right"><?= $user['lokasi']; ?></a>
                     </li>
                   </ul>
@@ -89,14 +86,6 @@
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label for="nama_gh" class="col-sm-2 col-form-label">Nama</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nama_gh" name="nama_gh" value="<?= $user['nama_gh']; ?>">
-                  <?= form_error('nama_gh', '<small class="text-danger pl-3">', '</small>'); ?>
-
-                </div>
-              </div>
               <div class="form-group row">
                 <div class="col-sm-2"><b> Picture</b> </div>
                 <div class="col-sm-10">

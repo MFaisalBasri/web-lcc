@@ -64,7 +64,7 @@
                                         <td>Rp.<?= $h['pengemasan']; ?></td>
                                         <td>Rp.<?= $h['total_biaya']; ?></td>
                                         <td>
-                                            <a href="<?php echo base_url('admin/editSkenario/' . $h['id_skenario']); ?>"><span class="badge bg-warning">Edit</span></a>
+                                            <a href="<?php echo base_url('admin/editSkenario/' . $h['kode_skenario']); ?>"><span class="badge bg-warning">Edit</span></a>
                                             <a href="<?php echo base_url('admin/hapusSkenario/' . $h['kode_skenario']); ?>"><span class="badge bg-danger">Clear</span></a>
                                         </td>
                                     </tr>

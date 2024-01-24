@@ -125,6 +125,15 @@ class Hasil_skenario extends CI_model
         return $query->result_array();
     }
 
+    public function getHasilByKode($kode_skenario)
+    {
+        $this->db->where('kode_skenario', $kode_skenario);
+
+        $query = $this->db->get('hasil_skenario');
+
+        return $query->result_array();
+    }
+
     public function getTotalData($id_user)
     {
         $this->db->where('id_user', $id_user);

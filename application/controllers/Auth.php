@@ -89,7 +89,6 @@ class Auth extends CI_Controller
                 'role_id' => 2,
                 'is_active' => 1,
                 'lokasi' => $this->input->post('lokasi'),
-                'nama_gh' => $this->input->post('nama_gh'),
                 'date_created' => time()
             ];
 
