@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306:3306
--- Waktu pembuatan: 24 Jan 2024 pada 03.44
+-- Waktu pembuatan: 25 Jan 2024 pada 08.44
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `siakad`
+-- Database: `db_lcc`
 --
 
 -- --------------------------------------------------------
@@ -164,7 +164,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `lokasi`) VALUES
-(33, 'admin', 'admin@gmail.com', 'avatar2.png', '444', 1, 1, 1706059346, 'Jakarta');
+(33, 'admin', 'admin@gmail.com', 'brett-jordan-jrEOH5LQZMw-unsplash-removebg-preview2.png', '222', 1, 1, 1706059346, 'Jakarta');
 
 -- --------------------------------------------------------
 
@@ -290,13 +290,13 @@ ALTER TABLE `bagan_skenario`
 -- AUTO_INCREMENT untuk tabel `hasil_skenario`
 --
 ALTER TABLE `hasil_skenario`
-  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `kode_skenario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access_menu`

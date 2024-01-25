@@ -127,7 +127,7 @@
                             <h3 class="card-title">Change Password</h3>
                         </div><!-- /.card-header -->
                         <div class="card-body">
-                            <form action="<?= base_url('admin/ubahPassword'); ?>" method="post">
+                            <form action="<?= base_url('admin/ubahPasswordUser'); ?>" method="post">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="email" hidden name="id" value="<?= $editUser['id']; ?>">
                                     <label for="new_password1">New Password</label>

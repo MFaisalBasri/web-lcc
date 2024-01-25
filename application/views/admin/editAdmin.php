@@ -59,7 +59,7 @@
                             <div class="form-group row">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="id" value="<?= $editUser['id']; ?>">
+                                    <input type="text" class="form-control" name="id" value="<?= $editUser['id']; ?>" hidden>
                                     <input type="text" class="form-control" id="email" name="email" value="<?= $editUser['email']; ?>" readonly>
                                 </div>
                             </div>

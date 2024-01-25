@@ -85,6 +85,8 @@ class Admin extends CI_Controller
             $name = $this->input->post('name');
             $email = $this->input->post('email');
             $lokasi = $this->input->post('lokasi');
+            $role_id = $this->input->post('role_id');
+            $is_active = $this->input->post('is_active');
 
             //cek apakah ada gambar
 
@@ -107,6 +109,8 @@ class Admin extends CI_Controller
 
             $this->db->set('name', $name);
             $this->db->set('lokasi', $lokasi);
+            $this->db->set('role_id', $role_id);
+            $this->db->set('is_active', $is_active);
             $this->db->where('email', $email);
             $this->db->update('user');
 
